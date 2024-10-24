@@ -16,7 +16,10 @@ export class ListarusuarioComponent implements OnInit{
   constructor(private uS: UsersService){}
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
-        this.dataSource=new MatTableDataSource(data);
-      });
+      this.dataSource=new MatTableDataSource(data);
+    });
+    this.uS.getList().subscribe((data) => {
+      this.dataSource=new MatTableDataSource(data);
+    });
   }
 }
