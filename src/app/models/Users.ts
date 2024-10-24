@@ -7,7 +7,7 @@ export class Users{
     email: string = "";
     genero: string = "";
     fechaRegistro: Date = new Date();
-    enabled: boolean = false;
+    enabled: boolean = true;
     username: string = "";
     password: string = "";
 }

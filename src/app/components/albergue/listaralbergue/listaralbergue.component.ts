@@ -18,5 +18,8 @@ export class ListaralbergueComponent implements OnInit {
     this.aS.list().subscribe((data) => {
         this.dataSource=new MatTableDataSource(data);
     });
+    this.aS.getList().subscribe((data) => {
+      this.dataSource=new MatTableDataSource(data);
+    });
   }
 }

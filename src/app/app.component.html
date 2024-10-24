@@ -1,1 +1,21 @@
-<app-users></app-users>
+<mat-toolbar class="custom-toolbar" >
+    <mat-icon >menu</mat-icon>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuUsuario" style="color: black;" > Usuario </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuAlbergue" style="color: black;" > Albergue </button>
+    </div>
+</mat-toolbar>
+    
+<mat-menu #menuUsuario="matMenu">
+    <button mat-menu-item routerLink="/usuarios" >Listar</button>
+    <button mat-menu-item routerLink="/usuarios/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuAlbergue="matMenu">  
+    <button mat-menu-item routerLink="/albergues">Listar</button>
+    <button mat-menu-item routerLink="/albergues/nuevo">Registrar</button>
+</mat-menu> 
+
+<router-outlet></router-outlet>
