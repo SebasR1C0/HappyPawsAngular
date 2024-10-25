@@ -10,6 +10,9 @@ export const routes: Routes = [
         children:[
             {
                 path:'nuevo', component:CreaeditauserComponent
+            },
+            {
+                path:'ediciones/:id', component:CreaeditauserComponent
             }
         ]
     },
@@ -18,6 +21,9 @@ export const routes: Routes = [
         children:[
             {
                 path:'nuevo', component:CreaeditaalbergueComponent
+            },
+            {
+                path:'ediciones/:id', component:CreaeditaalbergueComponent
             }
         ]
     }
