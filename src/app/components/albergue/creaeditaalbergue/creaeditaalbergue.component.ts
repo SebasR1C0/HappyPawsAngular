@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,  FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder,  FormControl,  FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Albergue } from '../../../models/Albergue';
 import { AlbergueService } from '../../../services/albergue.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { AlbergueService } from '../../../services/albergue.service';
     MatInputModule, 
     MatSelectModule, 
     MatButtonModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   templateUrl: './creaeditaalbergue.component.html',
   styleUrl: './creaeditaalbergue.component.css'
@@ -26,22 +28,40 @@ import { AlbergueService } from '../../../services/albergue.service';
 export class CreaeditaalbergueComponent implements OnInit {
   form:FormGroup=new FormGroup({});
   albergue:Albergue=new Albergue()
-  constructor(private aS:AlbergueService, private formBuilder:FormBuilder,private router:Router){}
+  id:number=0
+  edicion:boolean=false
+
+  constructor(
+    private aS:AlbergueService, 
+    private formBuilder:FormBuilder,
+    private router:Router,
+    private route:ActivatedRoute
+  ){}
+  
   ngOnInit(): void {
-      this.form=this.formBuilder.group({
-        hnombre:['',Validators.required],
-        hemail:['',Validators.required],
-        hdireccion:['',Validators.required],
-        htelefono:['',Validators.required],
-        hcapacidad:['',Validators.required],
-        hapertura:['',Validators.required],
-        hcierre:['',Validators.required],
-        hweb:['',Validators.required],
-        hacreditacion:['',Validators.required],
-      })
+    this.route.params.subscribe((data:Params)=>{
+      this.id = data['id'];
+      this.edicion = data['id']!=null
+      this.init()
+    })
+
+
+    this.form=this.formBuilder.group({
+      hcodigo:[''],
+      hnombre:['',Validators.required],
+      hemail:['',Validators.required],
+      hdireccion:['',Validators.required],
+      htelefono:['',Validators.required],
+      hcapacidad:['',Validators.required],
+      hapertura:['',Validators.required],
+      hcierre:['',Validators.required],
+      hweb:['',Validators.required],
+      hacreditacion:['',Validators.required],
+    })
   }
   aceptar():void{
     if(this.form.valid){
+      this.albergue.idAlbergue=this.form.value.hcodigo
       this.albergue.nombreAlbergue=this.form.value.hnombre
       this.albergue.emailAlbergue=this.form.value.hemail
       this.albergue.direccionAlbergue=this.form.value.hdireccion
@@ -51,12 +71,41 @@ export class CreaeditaalbergueComponent implements OnInit {
       this.albergue.horaCierre=this.form.value.hcierre
       this.albergue.webSite=this.form.value.hweb
       this.albergue.acreditacionAlbergue=this.form.value.hacreditacion
-      this.aS.insert(this.albergue).subscribe(d=>{
-        this.aS.list().subscribe(d=>{
-          this.aS.setList(d)
-        })
-      })
+      if (this.edicion) {
+        this.aS.update(this.albergue).subscribe(d => {
+          this.aS.list().subscribe(data => {
+            const sortedData = data.sort((a, b) => a.idAlbergue - b.idAlbergue);
+            this.aS.setList(sortedData); 
+          });
+        });
+      } else {
+        this.aS.insert(this.albergue).subscribe(d => {
+          this.aS.list().subscribe(data => {
+            const sortedData = data.sort((a, b) => a.idAlbergue - b.idAlbergue); 
+            this.aS.setList(sortedData); 
+          });
+        });
+      }
+      
       this.router.navigate(['albergues'])
+    }
+  }
+  init(){
+    if(this.edicion){
+      this.aS.listId(this.id).subscribe((data)=>{
+        this.form=new FormGroup({
+          hcodigo: new FormControl(data.idAlbergue),
+          hnombre: new FormControl(data.nombreAlbergue), 
+          hemail: new FormControl(data.emailAlbergue),   
+          hdireccion: new FormControl(data.direccionAlbergue), 
+          htelefono: new FormControl(data.telefonoAlbergue), 
+          hcapacidad: new FormControl(data.capacidadMaxima),
+          hapertura: new FormControl(data.horaApertura), 
+          hcierre: new FormControl(data.horaCierre), 
+          hweb: new FormControl(data.webSite), 
+          hacreditacion: new FormControl(data.acreditacionAlbergue)
+        });
+      });
     }
   }
 }
