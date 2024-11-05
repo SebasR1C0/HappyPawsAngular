@@ -1,0 +1,48 @@
+<div>
+    <div><h1>Registrar</h1></div>
+    <div>
+        <form [formGroup]="form" (submit)="aceptar()">
+          <mat-form-field class="example-full-width" *ngIf="edicion">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="hcodigo" readonly>
+            <mat-error *ngIf="form.controls['hcodigo'].hasError('required') && form.controls['hcodigo'].touched">
+              El código es requerido.
+            </mat-error>
+          </mat-form-field>
+          <br/>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Comentario</mat-label>
+            <input matInput placeholder="Comentario" formControlName="hcomentario">
+            <mat-error *ngIf="form.controls['hcomentario'].hasError('required') && form.controls['hcomentario'].touched">
+              El comentario es requerido.
+            </mat-error>
+          </mat-form-field>
+          <br/> 
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Estrella</mat-label>
+            <input matInput placeholder="Estrella" formControlName="hestrella">
+            <mat-error *ngIf="form.controls['hestrella'].hasError('required') && form.controls['hestrella'].touched">
+              Las estrellas son requeridas.
+            </mat-error>
+          </mat-form-field>
+          <br/> 
+          
+          <mat-form-field>
+            <mat-label>Albergue</mat-label>
+            <mat-select formControlName="halbergue">
+              <mat-option *ngFor="let food of listaAlbergues" [value]="food.idAlbergue">{{food.nombreAlbergue}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.controls['halbergue'].hasError('required') && form.controls['halbergue'].touched">
+              El albergue es requerido.
+            </mat-error>
+          </mat-form-field>
+          <br/> 
+
+          <div>
+              <button mat-flat-button>Registrar</button>
+          </div>
+        </form>
+    </div>
+</div>

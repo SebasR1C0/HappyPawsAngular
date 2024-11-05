@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Albergue } from '../models/Albergue';
+import { Role } from '../models/Role';
 import { map, Subject } from 'rxjs';
 
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
-export class AlbergueService {
-  private url=`${base_url}/albergues`
-  private listaCambio = new Subject<Albergue[]>()
+export class RoleService {
+  private url=`${base_url}/roles`
+  private listaCambio = new Subject<Role[]>()
   constructor(private http:HttpClient) { }
   list() {
-    return this.http.get<Albergue[]>(this.url).pipe(
-      map((albergues: Albergue[]) => albergues.sort((a, b) => a.idAlbergue - b.idAlbergue))
+    return this.http.get<Role[]>(this.url).pipe(
+      map((roles: Role[]) => roles.sort((a, b) => a.id- b.id)) 
     );
   }
-  insert(albergue:Albergue){
-    return this.http.post(this.url, albergue)
+  
+  insert(roles:Role){
+    return this.http.post(this.url, roles)
   }
 
-  setList(listaCambio: Albergue[]){
+  setList(listaCambio: Role[]){
     this.listaCambio.next(listaCambio)
   }
   getList(){
@@ -31,9 +32,9 @@ export class AlbergueService {
     return this.http.delete(`${this.url}/${id}`)
   }
   listId(id:number){
-    return this.http.get<Albergue>(`${this.url}/${id}`)
+    return this.http.get<Role>(`${this.url}/${id}`)
   }
-  update(a:Albergue){
-    return this.http.put(this.url, a)
+  update(r:Role){
+    return this.http.put(this.url, r)
   }
 }

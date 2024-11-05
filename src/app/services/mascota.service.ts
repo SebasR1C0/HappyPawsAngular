@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Albergue } from '../models/Albergue';
 import { map, Subject } from 'rxjs';
+import { Mascota } from '../models/Mascota';
 
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
 })
-export class AlbergueService {
-  private url=`${base_url}/albergues`
-  private listaCambio = new Subject<Albergue[]>()
+export class MascotaService {
+  private url=`${base_url}/mascotas`
+  private listaCambio = new Subject<Mascota[]>()
   constructor(private http:HttpClient) { }
+
   list() {
-    return this.http.get<Albergue[]>(this.url).pipe(
-      map((albergues: Albergue[]) => albergues.sort((a, b) => a.idAlbergue - b.idAlbergue))
+    return this.http.get<Mascota[]>(this.url).pipe(
+      map((mascota: Mascota[]) => mascota.sort((a, b) => a.idMascota- b.idMascota))
     );
   }
-  insert(albergue:Albergue){
-    return this.http.post(this.url, albergue)
+  insert(mascota:Mascota){
+    return this.http.post(this.url, mascota)
   }
 
-  setList(listaCambio: Albergue[]){
+  setList(listaCambio: Mascota[]){
     this.listaCambio.next(listaCambio)
   }
   getList(){
@@ -31,9 +32,9 @@ export class AlbergueService {
     return this.http.delete(`${this.url}/${id}`)
   }
   listId(id:number){
-    return this.http.get<Albergue>(`${this.url}/${id}`)
+    return this.http.get<Mascota>(`${this.url}/${id}`)
   }
-  update(a:Albergue){
-    return this.http.put(this.url, a)
+  update(m:Mascota){
+    return this.http.put(this.url, m)
   }
 }
