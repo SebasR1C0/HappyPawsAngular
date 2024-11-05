@@ -6,6 +6,27 @@
     <div>
         <button mat-button [matMenuTriggerFor]="menuAlbergue" style="color: black;" > Albergue </button>
     </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuMascota" style="color: black;" > Mascota </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuCita" style="color: black;" > Cita </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuComentario" style="color: black;" > Comentario </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuComprobante" style="color: black;" > Comprobante </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuDonacion" style="color: black;" > Donacion </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuNotificacion" style="color: black;" > Notificacion </button>
+    </div>
+    <div>
+        <button mat-button [matMenuTriggerFor]="menuRol" style="color: black;" > Rol </button>
+    </div>
 </mat-toolbar>
     
 <mat-menu #menuUsuario="matMenu">
@@ -18,4 +39,38 @@
     <button mat-menu-item routerLink="/albergues/nuevo">Registrar</button>
 </mat-menu> 
 
+<mat-menu #menuCita="matMenu">  
+    <button mat-menu-item routerLink="/citas">Listar</button>
+    <button mat-menu-item routerLink="/citas/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuComprobante="matMenu">
+    <button mat-menu-item routerLink="/comprobantes" >Listar</button>
+    <button mat-menu-item routerLink="/comprobantes/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuComentario="matMenu">  
+    <button mat-menu-item routerLink="/comentarios">Listar</button>
+    <button mat-menu-item routerLink="/comentarios/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuDonacion="matMenu">  
+    <button mat-menu-item routerLink="/donaciones">Listar</button>
+    <button mat-menu-item routerLink="/donaciones/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuMascota="matMenu">
+    <button mat-menu-item routerLink="/mascotas" >Listar</button>
+    <button mat-menu-item routerLink="/mascotas/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuNotificacion="matMenu">  
+    <button mat-menu-item routerLink="/notificaciones">Listar</button>
+    <button mat-menu-item routerLink="/notificaciones/nuevo">Registrar</button>
+</mat-menu> 
+
+<mat-menu #menuRol="matMenu">  
+    <button mat-menu-item routerLink="/roles">Listar</button>
+    <button mat-menu-item routerLink="/roles/nuevo">Registrar</button>
+</mat-menu> 
 <router-outlet></router-outlet>

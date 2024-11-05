@@ -6,7 +6,7 @@ export class Users{
     telefono: string = "";
     email: string = "";
     genero: string = "";
-    fechaRegistro: Date = new Date();
+    fechaRegistro: Date = new Date(Date.now());
     enabled: boolean = true;
     username: string = "";
     password: string = "";
