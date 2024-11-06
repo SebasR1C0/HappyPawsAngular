@@ -1,0 +1,28 @@
+div{
+    box-sizing: border-box;
+    }
+    h1{
+        padding: 30px 50px 5px 50px;
+        background-color:#76a48f;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+    
+    .first-box{
+        margin: 100px 200px 100px 200px;
+        background-color:#76a48f ;
+    }
+    table{
+        height: 500px;
+        padding: 10px 5px 20px 5px;
+        border-radius: 20px;
+        padding: 20px;
+        border:solid 10px;
+        border-color: #76a48f;
+    }
+    th{
+    font-weight: bold;
+    }
+    
