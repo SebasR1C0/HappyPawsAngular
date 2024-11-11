@@ -17,8 +17,26 @@ import { RoleComponent } from './components/role/role.component';
 import { CreaeditaroleComponent } from './components/role/creaeditarole/creaeditarole.component';
 import { NotificacionComponent } from './components/notificacion/notificacion.component';
 import { CreaeditadonacionComponent } from './components/donacion/creaeditadonacion/creaeditadonacion.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingpageHappyPawsComponent } from './components/landingpage-happy-paws/landingpage-happy-paws.component';
+import { segGuard } from './guard/seguridad.guard';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        redirectTo: 'landing',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    {
+        path: 'landing',
+        component: LandingpageHappyPawsComponent,
+    }, 
+
     {
         path:'usuarios', component:UsersComponent,
         children:[
@@ -28,7 +46,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditauserComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     {
         path:'albergues', component:AlbergueComponent,
@@ -39,7 +58,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditaalbergueComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     {
         path:'citas', component:CitaComponent,
@@ -50,7 +70,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditacitaComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'comentarios', component:ComentarioComponent,
@@ -61,7 +82,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditacomentarioComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'comprobantes', component:ComprobanteComponent,
@@ -72,7 +94,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditacomprobanteComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'donaciones', component:DonacionComponent,
@@ -83,7 +106,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditadonacionComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'mascotas',  component:MascotaComponent,
@@ -94,7 +118,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditamascotaComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'notificaciones', component:NotificacionComponent,
@@ -105,7 +130,8 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditanotificacionComponent
             }
-        ]
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
     {
         path:'roles',  component:RoleComponent,
@@ -116,6 +142,14 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditaroleComponent
             }
-        ]
-    }
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
+    },
+
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+      },
 ];
+

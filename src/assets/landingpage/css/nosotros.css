@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    background: #CFE9E3;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    width: 100%;
+    background-color: #8aefd7;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.barreraNavegacion {
+    max-width: 1200px;
+    margin: 0 100px 0 0;
+    /* Mueve hacia la izquierda */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #8aefd7;
+}
+
+.barreraNavegacion a {
+    text-decoration: none;
+    color: #0D442EFA;
+    font-size: 18px;
+    margin: 0 15px;
+    font-family: 'Arial', sans-serif;
+    background-color: #8aefd7;
+}
+
+.barreraNavegacion ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #8aefd7;
+}
+
+.barreraNavegacion ul li {
+    margin-right: 20px;
+    background-color: #8aefd7;
+}
+
+.barreraNavegacion ul li a:hover {
+    color: #04512E;
+}
+
+.imgLogo {
+    height: 50px;
+    width: auto;
+    background-color: #8aefd7;
+}
+
+.botonIngresar {
+    background-color: white;
+    color: #0D442EFA;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+button{
+    border: none;
+    position: relative;
+    margin: 0px;
+}
+
+.botonIngresar:hover {
+    background-color: #0D442EFA;
+    color: white;
+}
+.usuario{
+    width: 90%;
+    grid-area: 50px;
+    gap: 20px;
+    padding: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #8aefd7;
+}
+
+.barreraNavegacion ul,
+.botonIngresar {
+    display: flex;
+    align-items: center;
+
+}
+
+/*para darle color al pasar el puntero sobre el menu de opciones*/
+li a:hover {
+    background: #058545;
+    transition: 2s;
+}
+
+/* 1ra SECCION INTRODUCCION */
+
+#main-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+h1 {
+    color: #058545;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    text-align: center;
+
+}
+
+img {
+    width: 700px;
+    height: auto;
+
+
+}
+
+/* 2DA SECCION CONOCE  MAS */
+
+.conocemas {
+    clear: both;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #0D442EFA;
+    color: white;
+    width: 100vw;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #0D442EFA;
+}
+
+h3 {
+    font-size: 1.8em;
+    margin-top: 0;
+    /* Ajusta este margen para alinearlo con la parte superior */
+    margin-bottom: 15px;
+    color: white;
+    background-color: #0D442EFA;
+}
+
+.parrafo {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: justify;
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+.Misionvision {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0D442EFA;
+}
+
+.mision,
+.vision {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #0D442EFA;
+}
+
+.mision,
+.vision,
+.parrafo {
+    color: black;
+}
+
+
+/* TERCERA SECCION TEAM */
+
+.Team {
+    background-color: #2f7559;
+    padding: 20px;
+    width: auto;
+}
+
+.boxTeam {
+    background-color: #2f7559;
+
+}
+
+.Team figure {
+    display: inline-block;
+    margin: 0 20px;
+    text-align: center;
+    background-color: #2f7559;
+}
+
+.Team p {
+    align-content: center;
+    text-align: center;
+    padding-left: 80px;
+    background-color: #2f7559;
+}
+
+.Team h5 {
+    background-color: #2f7559;
+    font-size: 32PX;
+    color: white;
+    padding-left: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.boxTeam {
+    display: grid;
+    width: 900%;
+    margin: 20px 0px 0px 20px;
+    padding-left: 100px;
+    padding-right: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 400px 400px;
+    background-color: #2f7559;
+}
+
+.imagenTeam img {
+
+    height: 300px;
+    margin: 10px;
+    background-color: #2f7559;
+}
+
+.img-team {
+    background-color: #2f7559;
+    
+}
+
+.team_nombre {
+    background-color: #2f7559;
+
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #8aefd7;
+    padding: 20px 30px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    background-color: #8aefd7;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    background-color: #8aefd7;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-content .donation-link {
+    background-color: #8aefd7;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    margin-right: auto;
+}
+
+.footer-content .donation-link:hover {
+    text-decoration: underline;
+    color: #5baf91;
+}
+
+.social-icons {
+    background-color: #8aefd7;
+    display: flex;
+    gap: 15px;
+}
+
+
+.social-icons a {
+    background-color: #8aefd7;
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icons i {
+    background-color: #8aefd7;
+    color: #000;
+    /* Color de los íconos */
+    font-size: 24px;
+    /* Tamaño de los íconos */
+}
+
+.social-icons a:hover {
+    background-color: #8aefd7;
+    color: #5baf91;
+    transform: scale(1.1);
+}
+
+
+footer a {
+    background-color: #8aefd7;
+    color: #5baf91;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,72 +1,45 @@
-footer {
-    background-color: #8aefd7; 
-    padding: 20px 30px;
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  mat-toolbar button {
+    margin-right: 10px;
+  }
+  
+  mat-menu-item mat-icon {
+    margin-right: 8px;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .title-container {
     text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    position: relative; 
+    margin-bottom: 20px;
+  }
+  
+  button.mat-raised-button {
+    margin-top: 10px;
+  }
+  
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  /* Dentro de app.component.css o app.component.scss */
+
+.mat-toolbar {
+  background-color: #07a78c; /* Color de fondo del mat-toolbar */
+  color: white; /* Color del texto */
 }
 
-.footer-content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.mat-button {
+  color: #07a78c; /* Color del texto de los botones */
 }
 
-.footer-content p {
-    margin: 0;
-    font-size: 14px;
-    color: #333;
+.mat-button:hover {
+  background-color: #07a78c; /* Cambio de color de fondo al pasar el mouse */
+  color: white; /* Cambio de color del texto al pasar el mouse */
 }
-
-.footer-content .donation-link {
-    font-size: 16px;
-    color: #333;
-    text-decoration: none;
-    margin-right: auto; 
-}
-
-.footer-content .donation-link:hover {
-    text-decoration: underline;
-    color: #5baf91;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    color: #333;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: #5baf91;
-    transform: scale(1.1);
-}
-
-footer a {
-    color: #5baf91;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-.hidden {
-    display: none;
-}
-
-mat-toolbar{
-    background-color: #8aefd7;
-    align-items: center;
-}
-

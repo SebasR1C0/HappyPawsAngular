@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarcomprobanteComponent } from './listarcomprobante/listarcomprobante.component';
 
@@ -9,6 +9,7 @@ import { ListarcomprobanteComponent } from './listarcomprobante/listarcomprobant
   templateUrl: './comprobante.component.html',
   styleUrl: './comprobante.component.css'
 })
-export class ComprobanteComponent {
+export class ComprobanteComponent implements OnInit{
   constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {}
 }
