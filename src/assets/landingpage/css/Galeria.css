@@ -7,34 +7,80 @@ body {
 
 /* Header */
 
-.header-container {
-    background-color: #48a88d;
+header nav {
+    display: flex;
+    justify-content: space-between; /* Espaciado entre logo, menú y opciones de usuario */
+    align-items: center; /* Centrar elementos verticalmente */
+    background-color: #8AEFD7;
+    padding: 10px 20px;
+}
+
+header .logo img {
+    height: 50px; /* Tamaño del logo */
+    margin-left: 10px; /* Ajusta la separación izquierda */
+    margin-right: 20px; /* Espaciado entre el logo y el menú */
+    vertical-align: middle; /* Centrar verticalmente */
+}   
+
+/* Menú de navegación */
+header .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu li {
+    display: inline-block;
+}
+
+header .menu li a {
+    text-decoration: none;
+    color: #004D40;
+    font-size: 16px;
+}
+
+header .menu li a:hover {
+    color: #00796B;
+}
+
+/* Opciones del usuario */
+.user-options {
+    display: flex;
+    align-items: center; /* Centrar ícono y botón */
+    gap: 10px; /* Espaciado entre ícono y botón */
+    margin-left: auto; /* Llevar opciones al extremo derecho */
+}
+
+.user-icon {
+    font-size: 24px;
+    color: #004D40;
+}
+
+.user-icon:hover {
+    color: #00796B;
+}
+
+/* Botón de iniciar sesión/registrarse */
+.login-register-btn {
+    padding: 8px 15px; /* Espaciado interno */
+    font-size: 14px;
     color: white;
-    text-align: center;
-    padding: 20px;
-}
-.header-container {
-    background-color: #8aefd7; 
-    padding: 15px 30px;
-}
-
-.header-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 30px; 
+    background-color: #004D40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Evitar que el texto se divida */
 }
 
-.logo-header {
-    display: flex;
-    align-items: center;
+.login-register-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: #00796B;
 }
-
-.header-logo-image {
-    width: 80px;
-    height: auto;
-}
-
+    
 /* MAIN */
 main {
     display: flex;
