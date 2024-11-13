@@ -14,106 +14,92 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-header {
-    width: 100%;
-    background-color: #8aefd7;
-    padding: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.barreraNavegacion {
-    max-width: 1200px;
-    margin: 0 100px 0 0;
-    /* Mueve hacia la izquierda */
+header nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: #8aefd7;
-}
-
-.barreraNavegacion a {
-    text-decoration: none;
-    color: #0D442EFA;
-    font-size: 18px;
-    margin: 0 15px;
-    font-family: 'Arial', sans-serif;
-    background-color: #8aefd7;
-}
-
-.barreraNavegacion ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #8aefd7;
-}
-
-.barreraNavegacion ul li {
-    margin-right: 20px;
-    background-color: #8aefd7;
-}
-
-.barreraNavegacion ul li a:hover {
-    color: #04512E;
-}
-
-.imgLogo {
-    height: 50px;
-    width: auto;
-    background-color: #8aefd7;
-}
-
-.botonIngresar {
-    background-color: white;
-    color: #0D442EFA;
+    background-color: #8AEFD7;
     padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-    transition: background-color 0.3s, color 0.3s;
-
-}
-button{
-    border: none;
-    position: relative;
-    margin: 0px;
 }
 
-.botonIngresar:hover {
-    background-color: #0D442EFA;
-    color: white;
+header .logo {
+    display: flex; /* Usar flexbox para centrar el contenido */
+    align-items: center; /* Centrar el logo verticalmente */
+    justify-content: center; /* Centrar el logo horizontalmente */
+    margin: 0; /* Elimina márgenes adicionales */
+    padding: 0; /* Elimina padding extra */
+    height: 60px; /* Asegura que el contenedor tenga la altura del logo */
 }
-.usuario{
-    width: 90%;
-    grid-area: 50px;
+
+header .logo img {
+    height: 100%; /* El logo ocupará el 100% de la altura del contenedor */
+    max-height: 70px; /* Asegura que no se desborde si el contenedor es más grande */
+    width: auto; /* Mantiene la proporción del logo */
+}
+header .menu {
+    list-style: none;
+    display: flex;
     gap: 20px;
-    padding: auto;
+    margin: 0 0 0 40px;
+    padding: 0;
+    background-color: #8AEFD7;
 }
 
-nav {
+header .menu li {
+    display: inline-block;
+    background-color: #00796B;
+}
+
+header .menu li a {
+    text-decoration: none;
+    background-color: #8AEFD7;
+    font-size: 16px;
+    color:#333333
+}
+
+header .menu li a:hover {
+    color: #00796B;
+}
+
+.user-options {
+    margin-left: auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-    background-color: #8aefd7;
+    gap: 10px;
+    background-color: #8AEFD7;
 }
 
-.barreraNavegacion ul,
-.botonIngresar {
-    display: flex;
-    align-items: center;
-
+.user-icon {
+    font-size: 24px;
+    color: #004D40;
+    background-color: #8AEFD7;  
 }
 
-/*para darle color al pasar el puntero sobre el menu de opciones*/
-li a:hover {
-    background: #058545;
-    transition: 2s;
+.user-icon:hover {
+    color: #00796B;
+}
+
+.inicio-s {
+    background-color: #004D40;
+    color: white
+}
+
+/* Botón de iniciar sesión/registrarse */
+.login-register-btn {
+    padding: 8px 30px;
+    font-size: 14px;
+    color: white;
+    background-color: #004D40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.login-register-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: #00796B;
 }
 
 /* 1ra SECCION INTRODUCCION */
@@ -208,69 +194,47 @@ h3 {
 
 /* TERCERA SECCION TEAM */
 
-.Team {
-    background-color: #2f7559;
-    padding: 20px;
-    width: auto;
+.Team{
+    background: #27a573fa;
+    width: 100%;
+  
 }
+.Team figure { 
+    background: #27a573fa;
+  
+    text-align: center; 
+} 
 
-.boxTeam {
-    background-color: #2f7559;
-
-}
-
-.Team figure {
-    display: inline-block;
-    margin: 0 20px;
-    text-align: center;
-    background-color: #2f7559;
-}
-
-.Team p {
-    align-content: center;
-    text-align: center;
-    padding-left: 80px;
-    background-color: #2f7559;
-}
-
-.Team h5 {
-    background-color: #2f7559;
-    font-size: 32PX;
+.Team h2{
+    background-color: #27a573fa;
     color: white;
     padding-left: 80px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
-
-
-.boxTeam {
+.boxTeam{
+    background-color: #27a573fa;
     display: grid;
-    width: 900%;
-    margin: 20px 0px 0px 20px;
-    padding-left: 100px;
+    width: 100%;
+    padding-left: 90px;
     padding-right: 0px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 400px 400px;
-    background-color: #2f7559;
 }
-
-.imagenTeam img {
-
+.imagenTeam img{
+    width: 280px;
     height: 300px;
+    padding: 10px;
     margin: 10px;
-    background-color: #2f7559;
+    object-fit: cover;
+    border-radius: 20px;
 }
-
-.img-team {
-    background-color: #2f7559;
-    
+.img-team{
+    background-color: #27a573fa;
 }
-
-.team_nombre {
-    background-color: #2f7559;
-
+.team_nombre{
+    background-color: #27a573fa;
     color: white;
 }
+
 
 /* Footer */
 footer {
