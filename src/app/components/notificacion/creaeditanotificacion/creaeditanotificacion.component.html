@@ -1,61 +1,53 @@
 <div>
-    <div><h1>Registrar</h1></div>
-    <div>
-        <form [formGroup]="form" (submit)="aceptar()">
-          <mat-form-field class="example-full-width" *ngIf="edicion">
-            <mat-label>Código</mat-label>
-            <input matInput formControlName="hcodigo" readonly>
-            <mat-error *ngIf="form.controls['hcodigo'].hasError('required') && form.controls['hcodigo'].touched">
+  <form [formGroup]="form" (submit)="aceptar()">
+      <h1>Registro de Notificación</h1>
+
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="hcodigo" readonly>
+          <mat-error *ngIf="form.controls['hcodigo'].hasError('required') && form.controls['hcodigo'].touched">
               El código es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>
+          </mat-error>
+      </mat-form-field>
 
-          <mat-form-field class="example-full-width">
-            <mat-label>Mensaje</mat-label>
-            <input matInput placeholder="Mensaje" formControlName="hmensaje">
-            <mat-error *ngIf="form.controls['hmensaje'].hasError('required') && form.controls['hmensaje'].touched">
+      <mat-form-field>
+          <mat-label>Mensaje</mat-label>
+          <input matInput placeholder="Mensaje" formControlName="hmensaje">
+          <mat-error *ngIf="form.controls['hmensaje'].hasError('required') && form.controls['hmensaje'].touched">
               El mensaje es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field>
-            <mat-label>Emisor</mat-label>
-            <mat-select formControlName="hemisor">
-              <mat-option *ngFor="let food of listaUsuarios" [value]="food.id">{{food.username}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.controls['hemisor'].hasError('required') && form.controls['hemisor'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Emisor</mat-label>
+          <mat-select formControlName="hemisor">
+              <mat-option *ngFor="let user of listaUsuarios" [value]="user.id">{{user.username}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['hemisor'].hasError('required') && form.controls['hemisor'].touched">
               El usuario es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
-          
-          <mat-form-field>
-            <mat-label>Tipo</mat-label>
-            <mat-select formControlName="htipo">
-              <mat-option *ngFor="let food of listaTipos" [value]="food.value">{{food.viewValue}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.controls['htipo'].hasError('required') && form.controls['htipo'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Tipo</mat-label>
+          <mat-select formControlName="htipo">
+              <mat-option *ngFor="let tipo of listaTipos" [value]="tipo.value">{{tipo.viewValue}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['htipo'].hasError('required') && form.controls['htipo'].touched">
               El tipo es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
+          </mat-error>
+      </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>User</mat-label>
-            <mat-select formControlName="huser">
-              <mat-option *ngFor="let food of listaUsuarios" [value]="food.id">{{food.username}}</mat-option>
-            </mat-select>
-            <mat-error *ngIf="form.controls['huser'].hasError('required') && form.controls['huser'].touched">
+      <mat-form-field>
+          <mat-label>User</mat-label>
+          <mat-select formControlName="huser">
+              <mat-option *ngFor="let user of listaUsuarios" [value]="user.id">{{user.username}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.controls['huser'].hasError('required') && form.controls['huser'].touched">
               El usuario es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
+          </mat-error>
+      </mat-form-field>
 
-          <div>
-              <button mat-flat-button>Registrar</button>
-          </div>
-        </form>
-    </div>
+      <button mat-flat-button type="submit">Registrar</button>
+  </form>
 </div>
