@@ -28,28 +28,53 @@ header .menu {
 
 header .menu li {
     display: inline-block;
+    background-color: #00796B;
 }
 
 header .menu li a {
     text-decoration: none;
-    color: #004D40;
+    background-color: #8AEFD7;
     font-size: 16px;
+    color:#333333
 }
 
 header .menu li a:hover {
     color: #00796B;
 }
 
-header .user-icon {
+.user-options {
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-icon {
     font-size: 24px;
     color: #004D40;
 }
 
-header .user-icon i:hover {
+.user-icon:hover {
     color: #00796B;
 }
 
+/* Botón de iniciar sesión/registrarse */
+.login-register-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    color: white;
+    background-color: #004D40;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.login-register-btn:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: #00796B;
+}
 
 /* Sección de donaciones */
 .donation-section {
@@ -92,7 +117,6 @@ header .user-icon i:hover {
     background-color: #00796B;
 }
 
-
 .donation-content {
     display: flex;
     justify-content: space-between;
@@ -104,7 +128,6 @@ header .user-icon i:hover {
     margin-right: auto;
     flex-wrap: nowrap; 
 }
-
 
 .form-container {
     background-color: #004D40;
@@ -131,14 +154,6 @@ header .user-icon i:hover {
 }
 
 /* Estilos del formulario */
-.form-container {
-    background-color: #004D40;
-    padding: 20px;
-    border-radius: 10px;
-    width: 48%; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .form-container h2 {
     color: white;
     margin-bottom: 20px;
@@ -211,9 +226,8 @@ input::placeholder {
 }
 
 /* Footer */
-
 footer {
-    background-color:#8AEFD7;
+    background-color: #8AEFD7;
     color: black;
     padding: 20px;
     text-align: center;

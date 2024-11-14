@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Role } from '../models/Role';
-import { map, Subject } from 'rxjs';
+import { RoleByUserDTO } from '../models/RoleByUserDTO';
+import { map, Observable, Subject } from 'rxjs';
 
 const base_url=environment.base
 @Injectable({
@@ -36,5 +37,8 @@ export class RoleService {
   }
   update(r:Role){
     return this.http.put(this.url, r)
+  }
+  getCount():Observable<RoleByUserDTO[]>{
+    return this.http.get<RoleByUserDTO[]>(`${this.url}/rolxuser`)
   }
 }

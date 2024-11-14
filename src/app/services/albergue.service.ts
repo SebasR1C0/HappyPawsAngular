@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Albergue } from '../models/Albergue';
-import { map, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
+import { AlbergueByCountDTO } from '../models/AlbergueByCountDTO';
 
 const base_url=environment.base
 @Injectable({
@@ -35,5 +36,8 @@ export class AlbergueService {
   }
   update(a:Albergue){
     return this.http.put(this.url, a)
+  }
+  getCount():Observable<AlbergueByCountDTO[]>{
+    return this.http.get<AlbergueByCountDTO[]>(`${this.url}/alberguexcantidad`)
   }
 }

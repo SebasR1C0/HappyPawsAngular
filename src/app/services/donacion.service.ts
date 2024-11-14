@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { map, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { Donacion } from '../models/Donacion';
+import { DonacionByNameDTO } from '../models/DonacionByNameDTO';
 
 const base_url=environment.base
 @Injectable({
@@ -36,5 +37,8 @@ export class DonacionService {
   }
   update(d:Donacion){
     return this.http.put(this.url, d)
+  }
+  getDonaciones():Observable<DonacionByNameDTO[]>{
+    return this.http.get<DonacionByNameDTO[]>(`${this.url}/donacionxnombre`)
   }
 }

@@ -10,6 +10,7 @@ import { Users } from '../../../models/Users';
 import { UsersService } from '../../../services/users.service';
 import { Notificacion } from '../../../models/Notificacion';
 import { NotificacionService } from '../../../services/notificacion.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditanotificacion',
@@ -37,6 +38,7 @@ export class CreaeditanotificacionComponent implements OnInit {
   ]
   listaUsuarios: Users[] = []
   constructor(
+    public snackBar: MatSnackBar,
     private nS: NotificacionService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -76,12 +78,22 @@ export class CreaeditanotificacionComponent implements OnInit {
             this.nS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.nS.insert(this.notificacion).subscribe(() => {
           this.nS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idNotificacion - b.idNotificacion);
             this.nS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
       this.router.navigate(['notificaciones']);
