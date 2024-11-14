@@ -21,6 +21,13 @@ import { LoginComponent } from './components/login/login.component';
 import { LandingpageHappyPawsComponent } from './components/landingpage-happy-paws/landingpage-happy-paws.component';
 import { segGuard } from './guard/seguridad.guard';
 import { HomeComponent } from './components/home/home.component';
+import { RolebyuserComponent } from './components/role/rolebyuser/rolebyuser.component';
+import { AlbergueByCountDTO } from './models/AlbergueByCountDTO';
+import { AlberguebycountComponent } from './components/albergue/alberguebycount/alberguebycount.component';
+import { MascotaByAdopcionDTO } from './models/MascotaByAdopcionDTO';
+import { MascotabyadopcionComponent } from './components/mascota/mascotabyadopcion/mascotabyadopcion.component';
+import { MascotabyrazaComponent } from './components/mascota/mascotabyraza/mascotabyraza.component';
+import { DonacionbynameComponent } from './components/donacion/donacionbyname/donacionbyname.component';
 
 export const routes: Routes = [
     {
@@ -57,6 +64,9 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditaalbergueComponent
+            },
+            {
+                path:'alberguexcantidad', component:AlberguebycountComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
@@ -106,6 +116,10 @@ export const routes: Routes = [
             {
                 path:'ediciones/:id', component:CreaeditadonacionComponent
             }
+            ,
+            {
+                path:'donacionxnombre', component:DonacionbynameComponent
+            }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
     },
@@ -117,6 +131,14 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditamascotaComponent
+            }
+            ,
+            {
+                path:'mascotaxraza', component:MascotabyrazaComponent
+            }
+            ,
+            {
+                path:'mascotaxadopcion', component:MascotabyadopcionComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
@@ -141,6 +163,12 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditaroleComponent
+            },
+            {
+                path:'nuevo', component:CreaeditaroleComponent
+            },
+            {
+                path:'rolxuser', component:RolebyuserComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
