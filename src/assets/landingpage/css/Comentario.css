@@ -179,18 +179,74 @@ header .menu li a:hover {
 .form-section {
     flex: 0.5;
     background-color: #ffffff;
-    padding: 20px;
+    padding: 30px; /* Incrementa el padding interno del formulario */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #00796B; /* Marco verde */
 }
 
+.form-section label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
 .form-section form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
+/* Cantidad de Estrellas: texto y estrellas alineados */
+.form-section label[for="rating"] {
+    display: flex;
+    align-items: center; /* Alineación vertical */
+    justify-content: flex-start; /* Alineación horizontal hacia la izquierda */
+    gap: 15px; /* Espaciado entre el texto y las estrellas */
+    font-size: 16px;
+    font-weight: bold;
+}
 
+/* Star Rating */
+.star-rating {
+    display: flex;
+    gap: 10px; /* Espaciado entre las estrellas */
+    align-items: center; /* Asegura la alineación vertical de las estrellas */
+    margin: 0; /* Evita margen extra */
+    margin-left: 10px; /* Opcional: Ajusta la distancia entre el texto y las estrellas */
+    margin-bottom: 20px; /* Espaciado adicional entre las estrellas y el textarea */
+}
+
+.star-rating input {
+    display: none; /* Oculta los inputs de radio */
+    
+}
+
+.star-rating label {
+    font-size: 24px;
+    color: #ccc; /* Estrellas grises por defecto */
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: gold; /* Estrellas doradas al seleccionar o hacer hover */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00796B;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: #005B50;
+    transform: translateY(-2px);
+}
 
 .form-section label {
     font-size: 16px;
@@ -201,12 +257,22 @@ header .menu li a:hover {
 .form-section input,
 .form-section textarea {
     width: 100%;
-    padding: 10px;
+    padding: 10px 15px; /* Aumenta el espacio interno */
     font-size: 14px;
     color: #333;
     background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    border: 2px solid #00796B; /* Borde verde */
     border-radius: 5px;
+    margin-bottom: 20px; /* Espaciado inferior entre inputs */
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho total */
+    outline: none; /* Quita el borde azul por defecto al hacer foco */
+    transition: border-color 0.3s ease; /* Efecto de transición */
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+    border-color: #005B50; /* Cambia a un verde más oscuro al hacer foco */
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.5); /* Sombra ligera al hacer foco */
 }
 
 textarea {
@@ -214,27 +280,7 @@ textarea {
     min-height: 100px;
 }
 
-/* Star Rating Section */
-.star-rating {
-    display: flex;
-    gap: 10px;
-}
 
-.star-rating input {
-    display: none;
-}
-
-.star-rating label {
-    font-size: 24px;
-    color: #ccc;
-    cursor: pointer;
-}
-
-.star-rating label:hover,
-.star-rating label:hover ~ label,
-.star-rating input:checked ~ label {
-    color: gold;
-}
 
 /* Button */
 

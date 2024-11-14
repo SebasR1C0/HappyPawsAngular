@@ -8,6 +8,7 @@
     list-style: none;
     box-sizing: border-box;
     max-width: 100%;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
 }
 
 body {
@@ -43,11 +44,14 @@ header .menu {
     margin: 0 0 0 40px;
     padding: 0;
     background-color: #8AEFD7;
+    flex-wrap: wrap; /* Permite que los enlaces se ajusten en varias filas */
+
 }
 
 header .menu li {
     display: inline-block;
     background-color: #00796B;
+    flex-shrink: 0; /* Evita que los elementos se reduzcan en tamaños pequeños */
 }
 
 header .menu li a {
@@ -334,4 +338,121 @@ footer {
     background-color: #00796B; /* Fondo más claro */
     color: #E0F2F1; /* Cambia color del ícono */
     transform: scale(1.1); /* Agranda el ícono */
+}
+
+
+
+/* General Responsive Styles */
+
+
+@media (max-width: 1200px) {
+    .boxTeam {
+        grid-template-columns: 1fr 1fr; /* Ajusta a dos columnas en pantallas medianas */
+        grid-template-rows: auto; /* Ajusta automáticamente las filas */
+        gap: 20px; /* Añade espacio entre los elementos */
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .Team h2 {
+        padding-left: 20px;
+        font-size: 1.8em; /* Reduce el tamaño del título */
+        text-align: center;
+    }
+
+    .imagenTeam img {
+        width: 90%; /* Ajusta el tamaño de las imágenes al ancho del contenedor */
+        height: auto; /* Mantén la proporción */
+        margin: 0 auto; /* Centra las imágenes */
+    }
+}
+
+@media (max-width: 768px) {
+    header nav {
+        flex-direction: column; /* Apila los elementos del header */
+        align-items: center; /* Centra los elementos */
+        padding: 20px;
+    }
+
+    header .menu {
+        flex-direction: column; /* Menú en una columna */
+        align-items: center;
+        gap: 10px; /* Espacio entre los enlaces */
+        margin: 20px 0;
+    }
+
+    header .logo img {
+        max-height: 50px; /* Ajusta el tamaño del logo */
+    }
+
+    .boxTeam {
+        grid-template-columns: 1fr; /* Una sola columna en dispositivos pequeños */
+        gap: 20px;
+        padding: 0 20px; /* Reduce el padding en los laterales */
+    }
+
+    .Team h2 {
+        font-size: 1.6em;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .imagenTeam img {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .Misionvision {
+        flex-direction: column; /* Apila los elementos de misión y visión */
+        gap: 20px; /* Espaciado entre los elementos */
+    }
+
+    .mision, .vision {
+        padding: 10px; /* Reduce el padding */
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduce el tamaño del encabezado principal */
+    }
+
+    img {
+        width: 100%; /* Ajusta las imágenes al ancho del contenedor */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Apila los elementos del footer */
+        align-items: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        margin: 10px 0; /* Ajusta el espaciado entre las secciones */
+    }
+
+    .social-media li a {
+        width: 35px; /* Reduce el tamaño de los iconos */
+        height: 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .Team h2 {
+        font-size: 1.4em; /* Reduce aún más el tamaño del título */
+        padding: 10px;
+    }
+
+    .boxTeam {
+        padding: 0 10px; /* Reduce el padding lateral */
+    }
+
+    .imagenTeam img {
+        border-radius: 5px; /* Reduce el radio de las esquinas */
+    }
+
+    .footer-logo {
+        width: 50px; /* Ajusta el tamaño del logo en el footer */
+    }
 }
