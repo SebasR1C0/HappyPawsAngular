@@ -237,83 +237,101 @@ h3 {
 
 
 /* Footer */
+
+footer * {
+    text-shadow: none !important; /* Elimina cualquier sombra de texto */
+    color: #004D40 !important; /* Fuerza un color sólido si es necesario */
+    background: transparent !important; /* Elimina cualquier fondo extra */
+}
+footer * {
+    box-shadow: none !important; /* Elimina cualquier sombra en todos los elementos del footer */
+    filter: none !important; /* Elimina filtros aplicados, como brillo o desenfoque */
+}
 footer {
-    background-color: #8aefd7;
-    padding: 20px 30px;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    filter: none !important; /* Elimina cualquier filtro en el footer */
+}
+.footer-logo, .social-media li a {
+    background: transparent !important; /* Asegúrate de que no haya fondos extraños */
+}
+footer * {
+    all: unset; /* Resetea todos los estilos aplicados */
+}
+footer {
+    background-color: #8AEFD7;
+    color: black;
+    padding: 20px 0;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none; /* Elimina sombras */
     position: relative;
     bottom: 0;
+    flex-shrink: 0; /* Evita que el footer se reduzca cuando falta contenido */
 }
 
-.footer-content {
-    background-color: #8aefd7;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.footer-left p {
+    text-shadow: none; /* Elimina cualquier sombra en el texto */
+    color: #004D40; /* Asegúrate de que el color sea sólido y no blanco */
+    font-size: 14px; /* Ajusta el tamaño si es necesario */
+    margin: 0;
+}
+
+.footer-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Espaciado entre los elementos */
+    align-items: center;
+    width: 90%; /* Limita el ancho máximo */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+    flex-wrap: wrap; /* Ajuste para dispositivos pequeños */
+}
+
+.footer-left, .footer-center, .footer-right {
+    flex: 1;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.footer-content p {
-    background-color: #8aefd7;
-    margin: 0;
-    font-size: 14px;
-    color: #333;
+.footer-logo {
+    box-shadow: none; /* Elimina cualquier sombra del contenedor del logo */
+    background: none; /* Asegúrate de que no tenga un fondo extra */
+    filter: none; /* Elimina cualquier filtro aplicado, como brillo */
+    width: 60px; /* Ajusta el tamaño según lo necesario */
+    margin-bottom: 10px;
 }
 
-.footer-content .donation-link {
-    background-color: #8aefd7;
-    font-size: 16px;
-    color: #333;
-    text-decoration: none;
-    margin-right: auto;
-}
-
-.footer-content .donation-link:hover {
-    text-decoration: underline;
-    color: #5baf91;
-}
-
-.social-icons {
-    background-color: #8aefd7;
+.social-media {
+    list-style: none;
     display: flex;
+    justify-content: center;
     gap: 15px;
+    padding: 0;
 }
 
-
-.social-icons a {
-    background-color: #8aefd7;
-    color: #333;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.social-icons i {
-    background-color: #8aefd7;
-    color: #000;
-    /* Color de los íconos */
-    font-size: 24px;
-    /* Tamaño de los íconos */
-}
-
-.social-icons a:hover {
-    background-color: #8aefd7;
-    color: #5baf91;
-    transform: scale(1.1);
-}
-
-
-footer a {
-    background-color: #8aefd7;
-    color: #5baf91;
+.social-media li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #004D40; /* Fondo verde oscuro */
+    color: white;
+    border-radius: 50%; /* Íconos redondeados */
+    font-size: 18px;
     text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: none; /* Elimina sombras adicionales */
 }
 
-footer a:hover {
-    text-decoration: underline;
+.social-media li a:hover {
+    background-color: #00796B; /* Fondo más claro */
+    color: #E0F2F1; /* Cambia color del ícono */
+    transform: scale(1.1); /* Agranda el ícono */
 }
