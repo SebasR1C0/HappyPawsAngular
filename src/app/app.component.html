@@ -12,28 +12,28 @@
         <mat-icon>person</mat-icon>Usuario
       </button>
       <button mat-menu-item *ngIf="isAdmin()"[matMenuTriggerFor]="menuRol">
-        <mat-icon>fingerprint</mat-icon>Roles
+        <mat-icon>https icon</mat-icon>Roles
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isAlbergue() || isAdmin()"[matMenuTriggerFor]="menuAlbergue">
-        <mat-icon>fingerprint</mat-icon>Albergues
+        <mat-icon>store icon</mat-icon>Albergues
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()" [matMenuTriggerFor]="menuCita">
-        <mat-icon>fingerprint</mat-icon>Citas
+        <mat-icon>meeting_room</mat-icon>Citas
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuComprobante">
-        <mat-icon>fingerprint</mat-icon>Comprobantes
+        <mat-icon>list alt icon</mat-icon>Comprobantes
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAdmin() || isAlbergue()" [matMenuTriggerFor]="menuComentario">
-        <mat-icon>fingerprint</mat-icon>Comentarios
+        <mat-icon>mail outline icon</mat-icon>Comentarios
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuDonacion">
-        <mat-icon>fingerprint</mat-icon>Donaciones
+        <mat-icon>attach_money</mat-icon>Donaciones
       </button>
       <button mat-menu-item *ngIf="isAdmin() ||isAlbergue() || isAdmin() || isCustomer()"[matMenuTriggerFor]="menuMascota">
-        <mat-icon>fingerprint</mat-icon>Mascotas
+        <mat-icon>pets icon</mat-icon>Mascotas
       </button>
       <button mat-menu-item  *ngIf="isAdmin()"[matMenuTriggerFor]="menuNotificacion">
-        <mat-icon>fingerprint</mat-icon>Notificaciones
+        <mat-icon>question_answer</mat-icon>Notificaciones
       </button>
       <button mat-menu-item [matMenuTriggerFor]="menuSalir">
         <mat-icon>logout</mat-icon>Sesión
@@ -43,7 +43,7 @@
     <!-- Menú de Usuarios -->
     <mat-menu #menuUsuario="matMenu">
       <button mat-menu-item *ngIf="isAdmin() ||isCustomer()" routerLink="/usuarios/nuevo">
-        <mat-icon>person_add</mat-icon>Registrar
+        <mat-icon>add_circle </mat-icon>Registrar
       </button>
       <button mat-menu-item *ngIf="isAdmin()" routerLink="/usuarios">
         <mat-icon>list</mat-icon>Listar
@@ -58,6 +58,9 @@
       <button mat-menu-item *ngIf="isAdmin()"routerLink="/roles">
         <mat-icon>list</mat-icon>Listar
       </button>
+      <button mat-menu-item *ngIf="isAdmin()"routerLink="/roles/rolxuser">
+        <mat-icon>dashboard icon</mat-icon>Reporte
+      </button>
     </mat-menu>
 
     <!-- Menú de Albergues -->
@@ -67,6 +70,9 @@
         </button>
         <button mat-menu-item *ngIf="isAdmin()"routerLink="/albergues">
           <mat-icon>list</mat-icon>Listar
+        </button>
+        <button mat-menu-item *ngIf="isAdmin()"routerLink="/albergues/alberguexcantidad">
+          <mat-icon>dashboard icon</mat-icon>Reporte
         </button>
     </mat-menu>
 
@@ -108,6 +114,9 @@
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/donaciones">
           <mat-icon>list</mat-icon>Listar
         </button>
+        <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/donaciones/donacionxnombre">
+          <mat-icon>dashboard icon</mat-icon>Reporte
+        </button>
     </mat-menu>
 
      <!-- Menú de Mascota -->
@@ -117,6 +126,12 @@
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isCustomer()" routerLink="/mascotas">
           <mat-icon>list</mat-icon>Listar
+        </button>
+        <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/mascotas/mascotaxraza">
+          <mat-icon>dashboard icon</mat-icon>Raza
+        </button>
+        <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/mascotas/mascotaxadopcion">
+          <mat-icon>dashboard icon</mat-icon>Adopcion
         </button>
     </mat-menu>
 
