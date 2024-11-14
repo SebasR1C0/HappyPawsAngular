@@ -8,6 +8,7 @@ import { Users } from '../../../models/Users';
 import { UsersService } from '../../../services/users.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -37,6 +38,7 @@ export class CreaeditauserComponent implements OnInit {
     {value:'Femenino',viewValue:'Femenino'},
   ]
   constructor(
+    public snackBar: MatSnackBar,
     private uS:UsersService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -80,6 +82,11 @@ export class CreaeditauserComponent implements OnInit {
             this.uS.setList(sortedData); 
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.uS.insert(this.user).subscribe(d => {
           this.uS.list().subscribe(data => {
@@ -87,8 +94,12 @@ export class CreaeditauserComponent implements OnInit {
             this.uS.setList(sortedData); 
           });
         });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       }
-
       this.router.navigate(['usuarios'])
     }
   }

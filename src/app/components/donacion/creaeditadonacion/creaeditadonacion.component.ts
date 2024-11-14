@@ -12,6 +12,7 @@ import { UsersService } from '../../../services/users.service';
 import { Donacion } from '../../../models/Donacion';
 import { DonacionService } from '../../../services/donacion.service';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditadonacion',
@@ -41,6 +42,7 @@ export class CreaeditadonacionComponent implements OnInit {
   ]
   listaUsuarios: Users[] = []
   constructor(
+    public snackBar: MatSnackBar,
     private dS: DonacionService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -82,12 +84,22 @@ export class CreaeditadonacionComponent implements OnInit {
             this.dS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.dS.insert(this.donacion).subscribe(() => {
           this.dS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idDonacion - b.idDonacion);
             this.dS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 

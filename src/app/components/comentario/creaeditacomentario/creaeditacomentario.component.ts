@@ -10,6 +10,7 @@ import { Albergue } from '../../../models/Albergue';
 import { AlbergueService } from '../../../services/albergue.service';
 import { Comentario } from '../../../models/Comentario';
 import { ComentarioService } from '../../../services/comentario.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditacomentario',
@@ -32,6 +33,7 @@ export class CreaeditacomentarioComponent implements OnInit {
   listaAlbergues: Albergue[] = []
 
   constructor(
+    public snackBar: MatSnackBar,
     private cS: ComentarioService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -70,12 +72,22 @@ export class CreaeditacomentarioComponent implements OnInit {
             this.cS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.cS.insert(this.comentario).subscribe(() => {
           this.cS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idComentario - b.idComentario);
             this.cS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 

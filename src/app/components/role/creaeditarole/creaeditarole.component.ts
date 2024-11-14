@@ -10,6 +10,7 @@ import { Users } from '../../../models/Users';
 import { UsersService } from '../../../services/users.service';
 import { RoleService } from '../../../services/role.service';
 import { Role } from '../../../models/Role';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditarole',
@@ -39,6 +40,7 @@ export class CreaeditaroleComponent implements OnInit {
   listaUsuarios: Users[] = []
   
   constructor(
+    public snackBar: MatSnackBar,
     private rS: RoleService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -75,12 +77,22 @@ export class CreaeditaroleComponent implements OnInit {
             this.rS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.rS.insert(this.rol).subscribe(() => {
           this.rS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.id - b.id);
             this.rS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 
