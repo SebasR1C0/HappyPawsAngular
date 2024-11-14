@@ -10,6 +10,7 @@ import { DonacionService } from '../../../services/donacion.service';
 import { Donacion } from '../../../models/Donacion';
 import { ComprobanteService } from '../../../services/comprobante.service';
 import { Comprobante } from '../../../models/Comprobante';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-creaeditacomprobante',
   standalone: true,
@@ -40,6 +41,7 @@ export class CreaeditacomprobanteComponent implements OnInit{
   ]
   listaDonaciones: Donacion[] = []
   constructor(
+    public snackBar: MatSnackBar,
     private cS: ComprobanteService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -77,12 +79,22 @@ export class CreaeditacomprobanteComponent implements OnInit{
             this.cS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.cS.insert(this.comprobante).subscribe(() => {
           this.cS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idComprobante - b.idComprobante);
             this.cS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 

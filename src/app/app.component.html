@@ -14,26 +14,26 @@
       <button mat-menu-item *ngIf="isAdmin()"[matMenuTriggerFor]="menuRol">
         <mat-icon>fingerprint</mat-icon>Roles
       </button>
-      <button mat-menu-item *ngIf="isAlbergue() || isAdmin()"[matMenuTriggerFor]="menuAlbergue">
+      <button mat-menu-item *ngIf="isAdmin() || isAlbergue() || isAdmin()"[matMenuTriggerFor]="menuAlbergue">
         <mat-icon>fingerprint</mat-icon>Albergues
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()" [matMenuTriggerFor]="menuCita">
         <mat-icon>fingerprint</mat-icon>Citas
       </button>
-      <button mat-menu-item *ngIf="isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuComprobante">
+      <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuComprobante">
         <mat-icon>fingerprint</mat-icon>Comprobantes
       </button>
-      <button mat-menu-item *ngIf="isCustomer() || isAdmin() || isAlbergue()" [matMenuTriggerFor]="menuComentario">
+      <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAdmin() || isAlbergue()" [matMenuTriggerFor]="menuComentario">
         <mat-icon>fingerprint</mat-icon>Comentarios
       </button>
-      <button mat-menu-item *ngIf="isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuDonacion">
+      <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuDonacion">
         <mat-icon>fingerprint</mat-icon>Donaciones
       </button>
-      <button mat-menu-item *ngIf="isAlbergue() || isAdmin() || isCustomer()"[matMenuTriggerFor]="menuMascota">
+      <button mat-menu-item *ngIf="isAdmin() ||isAlbergue() || isAdmin() || isCustomer()"[matMenuTriggerFor]="menuMascota">
         <mat-icon>fingerprint</mat-icon>Mascotas
       </button>
       <button mat-menu-item  *ngIf="isAdmin()"[matMenuTriggerFor]="menuNotificacion">
-        <mat-icon>fingerprint</mat-icon>notificaciones
+        <mat-icon>fingerprint</mat-icon>Notificaciones
       </button>
       <button mat-menu-item [matMenuTriggerFor]="menuSalir">
         <mat-icon>logout</mat-icon>Sesión
@@ -42,7 +42,7 @@
   
     <!-- Menú de Usuarios -->
     <mat-menu #menuUsuario="matMenu">
-      <button mat-menu-item *ngIf="isCustomer()" routerLink="/usuarios/nuevo">
+      <button mat-menu-item *ngIf="isAdmin() ||isCustomer()" routerLink="/usuarios/nuevo">
         <mat-icon>person_add</mat-icon>Registrar
       </button>
       <button mat-menu-item *ngIf="isAdmin()" routerLink="/usuarios">
@@ -62,7 +62,7 @@
 
     <!-- Menú de Albergues -->
     <mat-menu #menuAlbergue="matMenu">
-        <button mat-menu-item *ngIf="isAlbergue()" routerLink="/albergues/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() ||isAlbergue()" routerLink="/albergues/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
         <button mat-menu-item *ngIf="isAdmin()"routerLink="/albergues">
@@ -75,14 +75,14 @@
         <button mat-menu-item *ngIf="isAdmin()"routerLink="/citas/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
-        <button mat-menu-item *ngIf="isCustomer() || isAlbergue()"routerLink="/citas">
+        <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()"routerLink="/citas">
           <mat-icon>list</mat-icon>Listar
         </button>
     </mat-menu>
 
      <!-- Menú de Comprobante -->
      <mat-menu #menuComprobante="matMenu">
-        <button mat-menu-item *ngIf="isCustomer()"routerLink="/comprobantes/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() ||isCustomer()"routerLink="/comprobantes/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()" routerLink="/comprobantes">
@@ -92,7 +92,7 @@
 
      <!-- Menú de Comentario -->
      <mat-menu #menuComentario="matMenu">
-        <button mat-menu-item *ngIf="isCustomer()"routerLink="/comentarios/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() ||isCustomer()"routerLink="/comentarios/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()" routerLink="/comentarios">
@@ -102,7 +102,7 @@
 
      <!-- Menú de Donacion -->
      <mat-menu #menuDonacion="matMenu">
-        <button mat-menu-item *ngIf="isCustomer()"routerLink="/donaciones/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() || isCustomer()"routerLink="/donaciones/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/donaciones">
@@ -112,7 +112,7 @@
 
      <!-- Menú de Mascota -->
      <mat-menu #menuMascota="matMenu">
-        <button mat-menu-item *ngIf="isAlbergue()"routerLink="/mascotas/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/mascotas/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isCustomer()" routerLink="/mascotas">
