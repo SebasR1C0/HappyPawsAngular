@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarmascotaComponent } from './listarmascota/listarmascota.component';
 
@@ -9,6 +9,7 @@ import { ListarmascotaComponent } from './listarmascota/listarmascota.component'
   templateUrl: './mascota.component.html',
   styleUrl: './mascota.component.css'
 })
-export class MascotaComponent {
+export class MascotaComponent implements OnInit {
   constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {}
 }

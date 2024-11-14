@@ -12,6 +12,7 @@ import { Albergue } from '../../../models/Albergue';
 import { AlbergueService } from '../../../services/albergue.service';
 import { Mascota } from '../../../models/Mascota';
 import { MascotaService } from '../../../services/mascota.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditamascota',
@@ -49,6 +50,7 @@ export class CreaeditamascotaComponent implements OnInit {
   ]
   listaAlbergues: Albergue[] = []
   constructor(
+    public snackBar: MatSnackBar,
     private mS: MascotaService,
     private formBuilder:FormBuilder,
     private router:Router,
@@ -96,12 +98,22 @@ export class CreaeditamascotaComponent implements OnInit {
             this.mS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        });
       } else {
         this.mS.insert(this.mascota).subscribe(() => {
           this.mS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idMascota - b.idMascota);
             this.mS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarcitaComponent } from './listarcita/listarcita.component';
 
@@ -9,6 +9,7 @@ import { ListarcitaComponent } from './listarcita/listarcita.component';
   templateUrl: './cita.component.html',
   styleUrl: './cita.component.css'
 })
-export class CitaComponent {
+export class CitaComponent implements OnInit {
   constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {}
 }

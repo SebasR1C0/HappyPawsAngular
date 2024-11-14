@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarnotificacionComponent } from './listarnotificacion/listarnotificacion.component';
 
@@ -9,6 +9,7 @@ import { ListarnotificacionComponent } from './listarnotificacion/listarnotifica
   templateUrl: './notificacion.component.html',
   styleUrl: './notificacion.component.css'
 })
-export class NotificacionComponent {
+export class NotificacionComponent implements OnInit{
   constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {}
 }

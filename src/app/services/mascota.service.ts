@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { map, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { Mascota } from '../models/Mascota';
+import { MascotaByAdopcionDTO } from '../models/MascotaByAdopcionDTO';
+import { MascotaByRazaDTO } from '../models/MascotaByRazaDTO';
 
 const base_url=environment.base
 @Injectable({
@@ -36,5 +38,11 @@ export class MascotaService {
   }
   update(m:Mascota){
     return this.http.put(this.url, m)
+  }
+  getRaza():Observable<MascotaByRazaDTO[]>{
+    return this.http.get<MascotaByRazaDTO[]>(`${this.url}/mascotaxraza`)
+  }
+  getAdopcion():Observable<MascotaByAdopcionDTO[]>{
+    return this.http.get<MascotaByAdopcionDTO[]>(`${this.url}/mascotaxadopcion`)
   }
 }

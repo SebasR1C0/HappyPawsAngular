@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import { ListarcomentarioComponent } from './listarcomentario/listarcomentario.component';
 
@@ -9,6 +9,7 @@ import { ListarcomentarioComponent } from './listarcomentario/listarcomentario.c
   templateUrl: './comentario.component.html',
   styleUrl: './comentario.component.css'
 })
-export class ComentarioComponent {
+export class ComentarioComponent  implements OnInit{
   constructor(public route:ActivatedRoute){}
+  ngOnInit(): void {}
 }

@@ -14,6 +14,7 @@ import { CitaService } from '../../../services/cita.service';
 import { Cita } from '../../../models/Cita';
 import { UsersService } from '../../../services/users.service';
 import { AlbergueService } from '../../../services/albergue.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditacita',
@@ -49,6 +50,7 @@ export class CreaeditacitaComponent implements OnInit {
   listaAlbergues: Albergue[] = []
   listaUsuarios: Users[] = []
   constructor(
+    public snackBar: MatSnackBar,
     private cS: CitaService, 
     private formBuilder:FormBuilder,
     private router:Router,
@@ -98,12 +100,22 @@ export class CreaeditacitaComponent implements OnInit {
             this.cS.setList(sortedData);
           });
         });
+        this.snackBar.open('Edición exitosa', 'Cerrar', {
+                duration: 3000,
+                horizontalPosition: 'center',
+                verticalPosition: 'bottom'
+        });
       } else {
         this.cS.insert(this.cita).subscribe(() => {
           this.cS.list().subscribe(data => {
             const sortedData = data.sort((a, b) => a.idCita - b.idCita);
             this.cS.setList(sortedData);
           });
+        });
+        this.snackBar.open('Registro exitoso', 'Cerrar', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
         });
       }
 
