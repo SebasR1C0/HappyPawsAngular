@@ -12,19 +12,19 @@
         <mat-icon>person</mat-icon>Usuario
       </button>
       <button mat-menu-item *ngIf="isAdmin()"[matMenuTriggerFor]="menuRol">
-        <mat-icon>https icon</mat-icon>Roles
+        <mat-icon>https</mat-icon>Roles
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isAlbergue() || isAdmin()"[matMenuTriggerFor]="menuAlbergue">
-        <mat-icon>store icon</mat-icon>Albergues
+        <mat-icon>store</mat-icon>Albergues
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()" [matMenuTriggerFor]="menuCita">
         <mat-icon>meeting_room</mat-icon>Citas
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuComprobante">
-        <mat-icon>list alt icon</mat-icon>Comprobantes
+        <mat-icon>list_alt</mat-icon>Comprobantes
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAdmin() || isAlbergue()" [matMenuTriggerFor]="menuComentario">
-        <mat-icon>mail outline icon</mat-icon>Comentarios
+        <mat-icon> mail_outline</mat-icon>Comentarios
       </button>
       <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()|| isAdmin()" [matMenuTriggerFor]="menuDonacion">
         <mat-icon>attach_money</mat-icon>Donaciones
@@ -48,6 +48,9 @@
       <button mat-menu-item *ngIf="isAdmin()" routerLink="/usuarios">
         <mat-icon>list</mat-icon>Listar
       </button>
+      <button mat-menu-item *ngIf="isAdmin()" routerLink="/usuarios/activos">
+        <mat-icon>check_circle</mat-icon>Activos
+      </button>
     </mat-menu>
   
     <!-- Menú de Tipos de Usuario -->
@@ -59,7 +62,7 @@
         <mat-icon>list</mat-icon>Listar
       </button>
       <button mat-menu-item *ngIf="isAdmin()"routerLink="/roles/rolxuser">
-        <mat-icon>dashboard icon</mat-icon>Reporte
+        <mat-icon>dashboard</mat-icon>Reporte
       </button>
     </mat-menu>
 
@@ -72,7 +75,10 @@
           <mat-icon>list</mat-icon>Listar
         </button>
         <button mat-menu-item *ngIf="isAdmin()"routerLink="/albergues/alberguexcantidad">
-          <mat-icon>dashboard icon</mat-icon>Reporte
+          <mat-icon>dashboard</mat-icon>Reporte
+        </button>
+        <button mat-menu-item *ngIf="isAdmin()"routerLink="/albergues/abiertoahora">
+          <mat-icon>call</mat-icon>Disponible
         </button>
     </mat-menu>
 
@@ -83,6 +89,9 @@
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()"routerLink="/citas">
           <mat-icon>list</mat-icon>Listar
+        </button>
+        <button mat-menu-item *ngIf="isAdmin() || isCustomer() || isAlbergue()"routerLink="/citas/buscarxpendiente">
+          <mat-icon>watch_later</mat-icon>Pendientes
         </button>
     </mat-menu>
 
@@ -115,7 +124,10 @@
           <mat-icon>list</mat-icon>Listar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/donaciones/donacionxnombre">
-          <mat-icon>dashboard icon</mat-icon>Reporte
+          <mat-icon>dashboard</mat-icon>Reporte
+        </button>
+        <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/donaciones/buscarxmonto">
+          <mat-icon>work</mat-icon>Montos
         </button>
     </mat-menu>
 
@@ -128,10 +140,10 @@
           <mat-icon>list</mat-icon>Listar
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/mascotas/mascotaxraza">
-          <mat-icon>dashboard icon</mat-icon>Raza
+          <mat-icon>dashboard</mat-icon>Raza
         </button>
         <button mat-menu-item *ngIf="isAdmin() || isAlbergue()"routerLink="/mascotas/mascotaxadopcion">
-          <mat-icon>dashboard icon</mat-icon>Adopcion
+          <mat-icon>insert_chart</mat-icon>Adopcion
         </button>
     </mat-menu>
 
@@ -143,7 +155,10 @@
         <button mat-menu-item routerLink="/notificaciones">
           <mat-icon>list</mat-icon>Listar
         </button>
-    </mat-menu>
+        <!--<button mat-menu-item routerLink="/notificaciones/notificacionxfecha">
+          <mat-icon>calendar_today</mat-icon>Conteo
+        </button>-->
+    </mat-menu> 
 
     <!-- Menú de Cerrar Sesión -->
     <mat-menu #menuSalir="matMenu">

@@ -28,6 +28,11 @@ import { MascotaByAdopcionDTO } from './models/MascotaByAdopcionDTO';
 import { MascotabyadopcionComponent } from './components/mascota/mascotabyadopcion/mascotabyadopcion.component';
 import { MascotabyrazaComponent } from './components/mascota/mascotabyraza/mascotabyraza.component';
 import { DonacionbynameComponent } from './components/donacion/donacionbyname/donacionbyname.component';
+import { AlbergueabiertoComponent } from './components/albergue/albergueabierto/albergueabierto.component';
+import { DonacionesxmontosComponent } from './components/donacion/donacionesxmontos/donacionesxmontos.component';
+import { UsersactivosComponent } from './components/users/usersactivos/usersactivos.component';
+import { CitaspendientesComponent } from './components/cita/citaspendientes/citaspendientes.component';
+import { NotficacionesxfechaComponent } from './components/notificacion/notficacionesxfecha/notficacionesxfecha.component';
 
 export const routes: Routes = [
     {
@@ -52,6 +57,9 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditauserComponent
+            },
+            {
+                path:'activos', component:UsersactivosComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
@@ -68,6 +76,10 @@ export const routes: Routes = [
             {
                 path:'alberguexcantidad', component:AlberguebycountComponent
             }
+            ,
+            {
+                path:'abiertoahora', component:AlbergueabiertoComponent
+            }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
@@ -79,6 +91,9 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditacitaComponent
+            },
+            {
+                path:'buscarxpendiente', component:CitaspendientesComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
@@ -119,6 +134,9 @@ export const routes: Routes = [
             ,
             {
                 path:'donacionxnombre', component:DonacionbynameComponent
+            },
+            {
+                path:'buscarxmonto', component:DonacionesxmontosComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un
@@ -151,6 +169,9 @@ export const routes: Routes = [
             },
             {
                 path:'ediciones/:id', component:CreaeditanotificacionComponent
+            },
+            {
+                path:'notificacionxfecha', component:NotficacionesxfechaComponent
             }
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada un

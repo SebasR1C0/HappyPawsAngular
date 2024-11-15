@@ -23,7 +23,7 @@ export class DonacionbynameComponent implements OnInit {
   constructor(private dS:DonacionService){}
   ngOnInit(): void {
     this.dS.getDonaciones().subscribe(data=>{
-      this.barChartLabels = data.map(item=>item.nombre + item.apellido);
+      this.barChartLabels = data.map(item=>item.nombre + ' ' + item.apellido);
       this.barChartData = [
         {
           data: data.map(item=>item.montoTotal),

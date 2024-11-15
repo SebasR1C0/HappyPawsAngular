@@ -41,4 +41,7 @@ export class DonacionService {
   getDonaciones():Observable<DonacionByNameDTO[]>{
     return this.http.get<DonacionByNameDTO[]>(`${this.url}/donacionxnombre`)
   }
+  getMontos():Observable<Donacion[]>{
+    return this.http.get<Donacion[]>(`${this.url}/buscarxmonto`)
+  }
 }
