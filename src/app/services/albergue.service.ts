@@ -40,4 +40,7 @@ export class AlbergueService {
   getCount():Observable<AlbergueByCountDTO[]>{
     return this.http.get<AlbergueByCountDTO[]>(`${this.url}/alberguexcantidad`)
   }
+  getOpen():Observable<Albergue[]>{
+    return this.http.get<Albergue[]>(`${this.url}/abiertoahora`)
+  }
 }

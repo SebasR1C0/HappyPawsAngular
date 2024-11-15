@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { map, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { Notificacion } from '../models/Notificacion';
+import { NotificacionByDate } from '../models/NotificacionByDate';
 
 const base_url=environment.base
 @Injectable({
@@ -36,5 +37,8 @@ export class NotificacionService {
   }
   update(n:Notificacion){
     return this.http.put(this.url, n)
+  }
+  getNotixFecha(fecha:LocalDate):Observable<NotificacionByDate[]>{
+    return this.http.get<NotificacionByDate[]>(`${this.url}/notificacionxfecha/${fecha}`)
   }
 }

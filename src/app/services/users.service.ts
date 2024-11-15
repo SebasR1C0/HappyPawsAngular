@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Users } from '../models/Users';
-import { map, Subject } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 
 const base_url=environment.base
 @Injectable({
@@ -36,5 +36,8 @@ export class UsersService {
   }
   update(u:Users){
     return this.http.put(this.url, u)
+  }
+  getActivos():Observable<Users[]>{
+    return this.http.get<Users[]>(`${this.url}/activos`)
   }
 }
