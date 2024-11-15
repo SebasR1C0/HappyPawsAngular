@@ -38,7 +38,7 @@ export class NotificacionService {
   update(n:Notificacion){
     return this.http.put(this.url, n)
   }
-  getNotixFecha(fecha:LocalDate):Observable<NotificacionByDate[]>{
+  getNotixFecha(fecha:Date):Observable<NotificacionByDate[]>{
     return this.http.get<NotificacionByDate[]>(`${this.url}/notificacionxfecha/${fecha}`)
   }
 }
