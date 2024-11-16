@@ -16,8 +16,10 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:8080'],
-          disallowedRoutes: ['http://localhost:8080/login/forget'],
+          allowedDomains: ['https://happypawsback-end.onrender.com'],
+          disallowedRoutes: ['https://happypawsback-end.onrender.com/login/forget'],
+          //allowedDomains: ['localhost:8080'],
+          //disallowedRoutes: ['http://localhost:8080/login/forget'],
         },
       })
     ), provideAnimationsAsync(),]
