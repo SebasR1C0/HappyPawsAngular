@@ -1,100 +1,87 @@
 <div>
-    <div><h1>Registrar</h1></div>
-    <div>
-        <form [formGroup]="form" (submit)="aceptar()">
+  <form [formGroup]="form" (submit)="aceptar()">
+      <h1>Registro de Albergue</h1>
 
-          <mat-form-field class="example-full-width" *ngIf="edicion">
-            <mat-label>Código</mat-label>
-            <input matInput formControlName="hcodigo" readonly>
-            <mat-error *ngIf="form.controls['hcodigo'].hasError('required') && form.controls['hcodigo'].touched">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>Código</mat-label>
+          <input matInput formControlName="hcodigo" readonly>
+          <mat-error *ngIf="form.controls['hcodigo'].hasError('required') && form.controls['hcodigo'].touched">
               El código es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Nombres</mat-label>
-            <input matInput placeholder="Nombres" formControlName="hnombre">
-            <mat-error *ngIf="form.controls['hnombre'].hasError('required') && form.controls['hnombre'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Nombres</mat-label>
+          <input matInput placeholder="Nombres" formControlName="hnombre">
+          <mat-error *ngIf="form.controls['hnombre'].hasError('required') && form.controls['hnombre'].touched">
               Los nombres son requeridos.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" formControlName="hemail">
-            <mat-error *ngIf="form.controls['hemail'].hasError('required') && form.controls['hemail'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" formControlName="hemail">
+          <mat-error *ngIf="form.controls['hemail'].hasError('required') && form.controls['hemail'].touched">
               El email es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>  
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Direccion</mat-label>
-            <input matInput placeholder="Direccion" formControlName="hdireccion">
-            <mat-error *ngIf="form.controls['hdireccion'].hasError('required') && form.controls['hdireccion'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Dirección</mat-label>
+          <input matInput placeholder="Dirección" formControlName="hdireccion">
+          <mat-error *ngIf="form.controls['hdireccion'].hasError('required') && form.controls['hdireccion'].touched">
               La dirección es requerida.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Telefono</mat-label>
-            <input matInput placeholder="Telefono" formControlName="htelefono">
-            <mat-error *ngIf="form.controls['htelefono'].hasError('required') && form.controls['htelefono'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Teléfono</mat-label>
+          <input matInput placeholder="Teléfono" formControlName="htelefono">
+          <mat-error *ngIf="form.controls['htelefono'].hasError('required') && form.controls['htelefono'].touched">
               El teléfono es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Capacidad</mat-label>
-            <input matInput placeholder="Capacidad" formControlName="hcapacidad">
-            <mat-error *ngIf="form.controls['hcapacidad'].hasError('required') && form.controls['hcapacidad'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Capacidad</mat-label>
+          <input matInput placeholder="Capacidad" formControlName="hcapacidad">
+          <mat-error *ngIf="form.controls['hcapacidad'].hasError('required') && form.controls['hcapacidad'].touched">
               La capacidad es requerida.
-            </mat-error>
-          </mat-form-field>
-          <br/> 
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Apertura</mat-label>
-            <input matInput placeholder="Apertura" formControlName="hapertura">
-            <mat-error *ngIf="form.controls['hapertura'].hasError('required') && form.controls['hapertura'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Apertura</mat-label>
+          <input matInput placeholder="Hora de Apertura" formControlName="hapertura">
+          <mat-error *ngIf="form.controls['hapertura'].hasError('required') && form.controls['hapertura'].touched">
               La apertura es requerida.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Cierre</mat-label>
-            <input matInput placeholder="Cierre" formControlName="hcierre">
-            <mat-error *ngIf="form.controls['hcierre'].hasError('required') && form.controls['hcierre'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Cierre</mat-label>
+          <input matInput placeholder="Hora de Cierre" formControlName="hcierre">
+          <mat-error *ngIf="form.controls['hcierre'].hasError('required') && form.controls['hcierre'].touched">
               El cierre es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>WebSite</mat-label>
-            <input matInput placeholder="WebSite" formControlName="hweb">
-            <mat-error *ngIf="form.controls['hweb'].hasError('required') && form.controls['hweb'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>WebSite</mat-label>
+          <input matInput placeholder="Sitio Web" formControlName="hweb">
+          <mat-error *ngIf="form.controls['hweb'].hasError('required') && form.controls['hweb'].touched">
               El sitio web es requerido.
-            </mat-error>
-          </mat-form-field>
-          <br/>
-          
-          <mat-form-field class="example-full-width">
-            <mat-label>Acreditacion</mat-label>
-            <input matInput placeholder="Acreditacion" formControlName="hacreditacion">
-            <mat-error *ngIf="form.controls['hacreditacion'].hasError('required') && form.controls['hacreditacion'].touched">
+          </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Acreditación</mat-label>
+          <input matInput placeholder="Acreditación" formControlName="hacreditacion">
+          <mat-error *ngIf="form.controls['hacreditacion'].hasError('required') && form.controls['hacreditacion'].touched">
               La acreditación es requerida.
-            </mat-error>
-          </mat-form-field>
-              <br/>
-            <div>
-                <button mat-flat-button>Registrar</button>
-            </div>
-        </form>
-    </div>
+          </mat-error>
+      </mat-form-field>
+
+      <button mat-flat-button type="submit">Registrar</button>
+  </form>
 </div>

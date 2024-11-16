@@ -78,7 +78,7 @@ export class CreaeditanotificacionComponent implements OnInit {
             this.nS.setList(sortedData);
           });
         });
-        this.snackBar.open('Edición exitosa', 'Cerrar', {
+        this.snackBar.open('EdiciÃ³n exitosa', 'Cerrar', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom'

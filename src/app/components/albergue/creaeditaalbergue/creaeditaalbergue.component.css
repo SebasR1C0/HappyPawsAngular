@@ -1,78 +1,79 @@
-/* Contenedor principal */
-.formulario {
+div {
     display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    height: 100vh; /* Altura completa de la pantalla */
-    background: linear-gradient(to bottom, #e8f5e9, #c8e6c9); /* Fondo degradado */
-    margin: 0; /* Elimina márgenes externos */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #12c6a8, #238989); /* Fondo degradado */
+    padding: 10px; /* Espacio alrededor en pantallas pequeñas */
 }
 
-/* Contenedor del formulario específico */
-.registrar-albergue {
-    width: 400px; /* Ancho del formulario ajustado */
-    padding: 20px; /* Espacio interno */
-    border-radius: 20px;
-    border: 2px solid #2B7255; /* Borde verde */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    background-color: #ffffff; /* Fondo blanco */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px; /* Máximo ancho para pantallas grandes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Título del formulario */
 h1 {
-    color: #2B7255;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
-    font-size: 1.8rem; /* Tamaño ajustado */
     text-align: center;
-    margin-bottom: 20px; /* Espacio debajo del título */
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
 }
 
-/* Campos del formulario */
-mat-form-field {
-    width: 100%; /* Ajusta al ancho del contenedor */
-    margin: 10px 0; /* Espaciado entre campos */
-    background-color: #f8f8f8; /* Fondo más claro */
-    border-radius: 10px;
+.mat-form-field {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
-/* Estilo de las etiquetas */
-mat-label {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: #2B7255; /* Verde oscuro */
-}
-
-/* Botón del formulario */
 button {
-    width: 100%; /* Ocupa el ancho del contenedor */
-    background-color: #73b0a3;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    padding: 10px;
-    margin-top: 20px;
+    width: 100%;
+    background: linear-gradient(135deg, #1a6e7d, #289099); /* Gradiente para el botón */
+    color: white;
+    font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
+    padding: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #5b9b87; /* Color más oscuro al pasar el mouse */
+    background: linear-gradient(135deg, #172654, #12094d); /* Gradiente más oscuro para hover */
 }
 
-/* Adaptación para pantallas pequeñas */
+/* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-    .registrar-albergue {
-        width: 90%; /* Ajusta el ancho en pantallas pequeñas */
-        padding: 15px; /* Reduce el padding */
+    form {
+        padding: 20px;
     }
 
     h1 {
-        font-size: 1.5rem; /* Ajusta el tamaño del título */
+        font-size: 1.5rem;
     }
 
-    mat-form-field {
-        margin: 8px 0; /* Reduce el espaciado entre campos */
+    button {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    button {
+        padding: 6px;
     }
 }

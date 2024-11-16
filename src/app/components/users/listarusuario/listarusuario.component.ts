@@ -17,7 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ListarusuarioComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource:MatTableDataSource<Users>=new MatTableDataSource()
-  displayedColumns:string[]=['c1','c2','c3','c4','c5','c6','c7','c8','c9','c10','c11','accion01']
+  displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'accion01'];
   constructor(private uS: UsersService, public snackBar: MatSnackBar){}
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
