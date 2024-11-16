@@ -199,23 +199,31 @@ h3 {
 /* TERCERA SECCION TEAM */
 
 .Team{
-    background: #27a573fa;
+    background: white;
     width: 100%;
   
 }
 .Team figure { 
-    background: #27a573fa;
+    background: white;
   
     text-align: center; 
 } 
 
-.Team h2{
-    background-color: #27a573fa;
+/* Cambios al título del equipo */
+.Team h2 {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
     color: white;
-    padding-left: 80px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    animation: gradient-text 3s infinite alternate;
 }
+
+
 .boxTeam{
-    background-color: #27a573fa;
+    background-color: white;
     display: grid;
     width: 100%;
     padding-left: 90px;
@@ -232,11 +240,15 @@ h3 {
     border-radius: 20px;
 }
 .img-team{
-    background-color: #27a573fa;
+    background-color: black;
 }
 .team_nombre{
-    background-color: #27a573fa;
-    color: white;
+    background-color: white; /* Mantén el fondo como está */
+    color: black; /* Cambia el color del texto a negro */
+    font-weight: bold; /* Opcional: hace que el texto sea más visible */
+    text-align: center; /* Asegura que el texto esté centrado */
+    padding: 10px; /* Añade un poco de espacio interno */
+    border-radius: 5px; /* Opcional: bordes ligeramente redondeados */
 }
 
 
