@@ -10,29 +10,44 @@
         </mat-error>
       </mat-form-field>
   
-      <mat-form-field>
+      <mat-form-field class="example-full-width">
         <mat-label>Nombre</mat-label>
         <input matInput placeholder="Nombre" formControlName="hnombre">
-        <mat-error *ngIf="form.controls['hnombre'].hasError('required') && form.controls['hnombre'].touched">
-          El nombre es requerido.
+        <mat-error *ngIf="form.controls['hnombre'].touched">
+          <ng-container *ngIf="form.controls['hnombre'].hasError('required')">
+            El nombre es requerido.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hnombre'].hasError('minlength') && !form.controls['hnombre'].hasError('required')">
+            Debe tener al menos 2 caracteres.
+          </ng-container>
         </mat-error>
       </mat-form-field>
   
-      <mat-form-field>
-        <mat-label>Nacimiento</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha de Nacimiento</mat-label>
         <input matInput [matDatepicker]="picker1" formControlName="hnacimiento" required>
-        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
-        <mat-error *ngIf="form.controls['hnacimiento'].hasError('required') && form.controls['hnacimiento'].touched">
-          La fecha es requerida.
+        <mat-error *ngIf="form.controls['hnacimiento'].touched">
+          <ng-container *ngIf="form.controls['hnacimiento'].hasError('required')">
+            La fecha es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hnacimiento'].hasError('fechaInvalida') && !form.controls['hnacimiento'].hasError('required')">
+            Debe ser anterior a hoy.
+          </ng-container>
         </mat-error>
       </mat-form-field>
   
-      <mat-form-field>
+      <mat-form-field class="example-full-width">
         <mat-label>Raza</mat-label>
         <input matInput placeholder="Raza" formControlName="hraza">
-        <mat-error *ngIf="form.controls['hraza'].hasError('required') && form.controls['hraza'].touched">
-          La raza es requerida.
+        <mat-error *ngIf="form.controls['hraza'].touched">
+          <ng-container *ngIf="form.controls['hraza'].hasError('required')">
+            La raza es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hraza'].hasError('minlength') && !form.controls['hraza'].hasError('required')">
+            Debe tener al menos 2 caracteres.
+          </ng-container>
         </mat-error>
       </mat-form-field>
   
@@ -56,13 +71,18 @@
         </mat-error>
       </mat-form-field>
   
-      <mat-form-field>
+      <mat-form-field class="example-full-width">
         <mat-label>Fecha</mat-label>
         <input matInput [matDatepicker]="picker2" formControlName="hfecha" required>
-        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
-        <mat-error *ngIf="form.controls['hfecha'].hasError('required') && form.controls['hfecha'].touched">
-          La fecha es requerida.
+        <mat-error *ngIf="form.controls['hfecha'].touched">
+          <ng-container *ngIf="form.controls['hfecha'].hasError('required')">
+            La fecha es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hfecha'].hasError('fechaInvalida') && !form.controls['hfecha'].hasError('required')">
+            Debe ser anterior a hoy.
+          </ng-container>
         </mat-error>
       </mat-form-field>
   

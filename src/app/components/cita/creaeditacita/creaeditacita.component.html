@@ -10,22 +10,38 @@
           </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-          <mat-label>Fecha</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="hfecha" required>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="form.controls['hfecha'].hasError('required') && form.controls['hfecha'].touched">
-              La fecha es requerida.
-          </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" placeholder="Fecha" formControlName="hfecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.controls['hfecha'].touched">
+          <ng-container *ngIf="form.controls['hfecha'].hasError('required')">
+            La fecha es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hfecha'].hasError('fechaInvalida') && !form.controls['hfecha'].hasError('required')">
+            Debe ser posterior a hoy.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-          <mat-label>Hora</mat-label>
-          <input matInput placeholder="Hora" formControlName="hhora">
-          <mat-error *ngIf="form.controls['hhora'].hasError('required') && form.controls['hhora'].touched">
-              La hora es requerida.
-          </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Hora</mat-label>
+        <input matInput placeholder="Hora" formControlName="hhora">
+        <mat-error *ngIf="form.controls['hhora'].touched">
+          <ng-container *ngIf="form.controls['hhora'].hasError('required')">
+            La hora es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hhora'].hasError('pattern') && !form.controls['hhora'].hasError('required')">
+            Debe ser un número entero.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hhora'].hasError('min') && !form.controls['hhora'].hasError('required') && !form.controls['hhora'].hasError('pattern')">
+            Debe ser mayor o igual a 0.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hhora'].hasError('max') && !form.controls['hhora'].hasError('required') && !form.controls['hhora'].hasError('pattern')">
+            Debe ser menor o igual a 24.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -48,12 +64,17 @@
           </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-          <mat-label>Comentario</mat-label>
-          <input matInput placeholder="Comentario" formControlName="hcomentario">
-          <mat-error *ngIf="form.controls['hcomentario'].hasError('required') && form.controls['hcomentario'].touched">
-              El comentario es requerido.
-          </mat-error>
+      <mat-form-field class="example-full-width">
+        <mat-label>Comentario</mat-label>
+        <input matInput placeholder="Comentario" formControlName="hcomentario">
+        <mat-error *ngIf="form.controls['hcomentario'].touched">
+          <ng-container *ngIf="form.controls['hcomentario'].hasError('required')">
+            El comentario es requerido.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hcomentario'].hasError('minlength') && !form.controls['hcomentario'].hasError('required')">
+            Debe tener al menos 5 caracteres.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>

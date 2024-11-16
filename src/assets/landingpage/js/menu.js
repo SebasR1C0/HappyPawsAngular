@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
-            item.classList.toggle('active');
-            item.nextElementSibling.style.display = (item.classList.contains('active')) ? 'block' : 'none';
+            const isActive = item.classList.toggle('active');
+            item.nextElementSibling.style.display = isActive ? 'block' : 'none';
         });
     });
-});    
+});   
 
 const carousel = document.getElementById('carousel');
 let currentIndex = 0;

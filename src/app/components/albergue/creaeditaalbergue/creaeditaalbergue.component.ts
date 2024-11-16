@@ -50,15 +50,15 @@
 
       this.form=this.formBuilder.group({
         hcodigo:[''],
-        hnombre:['',Validators.required],
-        hemail:['',Validators.required],
-        hdireccion:['',Validators.required],
-        htelefono:['',Validators.required],
-        hcapacidad:['',Validators.required],
-        hapertura:['',Validators.required],
-        hcierre:['',Validators.required],
-        hweb:['',Validators.required],
-        hacreditacion:['',Validators.required],
+        hnombre:['',[Validators.required, Validators.minLength(2)]],
+        hemail:['',[Validators.required, Validators.email]],
+        hdireccion:['',[Validators.required, Validators.minLength(2)]],
+        htelefono:['',[Validators.required, Validators.pattern("^[0-9]+$")]],
+        hcapacidad:['',[Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(5)]],
+        hapertura:['',[Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(0), Validators.max(24)]],
+        hcierre:['',[Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(0), Validators.max(24)]],
+        hweb:['',[Validators.required, Validators.minLength(2)]],
+        hacreditacion:['',[Validators.required, Validators.minLength(7)]],
       })
     }
     aceptar():void{

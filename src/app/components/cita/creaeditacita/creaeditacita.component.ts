@@ -67,11 +67,11 @@ export class CreaeditacitaComponent implements OnInit {
     
       this.form = this.formBuilder.group({
         hcodigo:[''],
-        hfecha:['',Validators.required],
-        hhora:['',Validators.required],
+        hfecha:['',[Validators.required, this.fechaValida]],
+        hhora: ['', [Validators.required, Validators.pattern("^[0-9]+$"), Validators.min(0), Validators.max(24)]],
         hestado:['',Validators.required],
         htipo:['',Validators.required],
-        hcomentario:['', Validators.required],
+        hcomentario:['', [Validators.required, Validators.minLength(5)]],
         halbergue:['', Validators.required],
         huser:['', Validators.required],
       })
@@ -81,6 +81,11 @@ export class CreaeditacitaComponent implements OnInit {
       this.uS.list().subscribe((data) => {
         this.listaUsuarios = data;
       });
+  }
+  fechaValida(control: { value: string | number | Date; }) {
+    const fecha = new Date(control.value);
+    const hoy = new Date();
+    return fecha > hoy ? null : { fechaInvalida: true };
   }
   aceptar(): void {
     if (this.form.valid) {

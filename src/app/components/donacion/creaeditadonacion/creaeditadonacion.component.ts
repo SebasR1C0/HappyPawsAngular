@@ -5,27 +5,23 @@ import { MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { MatDatepickerModule} from '@angular/material/datepicker';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Users } from '../../../models/Users';
 import { UsersService } from '../../../services/users.service';
 import { Donacion } from '../../../models/Donacion';
 import { DonacionService } from '../../../services/donacion.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-creaeditadonacion',
   standalone: true,
-  providers: [provideNativeDateAdapter()],
   imports: [FormsModule,
     MatFormFieldModule, 
     MatInputModule, 
     MatSelectModule, 
     MatButtonModule, 
     ReactiveFormsModule,
-    CommonModule,
-    MatDatepickerModule],
+    CommonModule],
   templateUrl: './creaeditadonacion.component.html',
   styleUrl: './creaeditadonacion.component.css'
 })
@@ -58,10 +54,9 @@ export class CreaeditadonacionComponent implements OnInit {
     
       this.form = this.formBuilder.group({
         hcodigo:[''],
-        hfecha:['',Validators.required],
         htipo:['',Validators.required],
-        hdetalle:['',Validators.required],
-        hmonto:['',Validators.required],
+        hdetalle:['',[Validators.required, Validators.minLength(5)]],
+        hmonto: ['', [Validators.required, Validators.pattern("^[0-9]+(\.[0-9]{1,2})?$"), Validators.min(1)]],
         huser:['', Validators.required],
       })
       this.uS.list().subscribe((data) => {
@@ -71,7 +66,6 @@ export class CreaeditadonacionComponent implements OnInit {
   aceptar(): void {
     if (this.form.valid) {
       this.donacion.idDonacion= this.form.value.hcodigo;
-      this.donacion.fechaDonacion = this.form.value.hfecha;
       this.donacion.tipoDonacion = this.form.value.htipo;
       this.donacion.detalles = this.form.value.hdetalle;
       this.donacion.monto = this.form.value.hmonto;
@@ -111,7 +105,6 @@ export class CreaeditadonacionComponent implements OnInit {
       this.dS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           hcodigo: new FormControl(data.idDonacion),
-          hfecha: new FormControl(data.fechaDonacion),
           htipo: new FormControl(data.tipoDonacion),
           hdetalle: new FormControl(data.detalles),
           hmonto: new FormControl(data.monto),

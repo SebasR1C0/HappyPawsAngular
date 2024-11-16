@@ -13,10 +13,18 @@
         <mat-form-field>
             <mat-label>Mensaje</mat-label>
             <input matInput placeholder="Mensaje" formControlName="hmensaje">
-            <mat-error *ngIf="form.controls['hmensaje'].hasError('required') && form.controls['hmensaje'].touched">
+            <mat-error *ngIf="form.controls['hmensaje'].touched">
+              <ng-container *ngIf="form.controls['hmensaje'].hasError('required')">
                 El mensaje es requerido.
+              </ng-container>
+              <ng-container *ngIf="form.controls['hmensaje'].hasError('minlength') && !form.controls['hmensaje'].hasError('required')">
+                Debe tener al menos 4 caracteres.
+              </ng-container>
+              <ng-container *ngIf="form.controls['hmensaje'].hasError('maxlength') && !form.controls['hmensaje'].hasError('required') && !form.controls['hmensaje'].hasError('minlength')">
+                No debe tener más de 20 caracteres.
+              </ng-container>
             </mat-error>
-        </mat-form-field>
+          </mat-form-field>
   
         <mat-form-field>
             <mat-label>Emisor</mat-label>
