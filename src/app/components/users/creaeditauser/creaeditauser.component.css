@@ -1,95 +1,79 @@
-/* Asegura que el body ocupe toda la altura de la pantalla */
-body {
-    margin: 0; /* Quita márgenes */
-    height: 100vh; /* Altura de toda la ventana */
-    display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
-    background: linear-gradient(to bottom, #e8f5e9, #c8e6c9); /* Fondo con degradado */
-    font-family: 'Inter', sans-serif;
-  }
-  
-  /* Contenedor principal del formulario */
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Asegura adaptabilidad */
-  }
-  
-  /* Formulario */
-  form {
-    background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Título del formulario */
-  h1 {
-    color: #1b5e20;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Campos del formulario */
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  mat-label {
-    font-size: 1rem;
-    color: #1b5e20;
-  }
-  
-  input, mat-select {
-    font-size: 1rem;
-    color: #2e7d32;
-    border-radius: 8px;
-    padding: 5px;
-  }
-  
- /* Botón */
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #12c6a8, #238989);
+  padding: 10px; /* Asegura espacio alrededor del formulario en pantallas pequeñas */
+}
+
+form {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Máximo ancho para mantenerlo compacto en pantallas grandes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 button {
-    width: 100%;
-    background: #1b5e20; /* Cambia el color del botón a verde */
-    color: white;
-    font-size: 1.2rem;
-    padding: 10px 0;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #2e7d32; /* Cambia el color del hover a un verde más oscuro */
-  }
-  
-  
-  /* Errores del formulario */
-  mat-error {
-    color: #d32f2f;
-    font-size: 0.85rem;
-  }
-  
-  /* Responsividad */
-  @media (max-width: 600px) {
-    form {
+  width: 100%;
+  background: linear-gradient(135deg, #1a6e7d, #289099);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #172654, #12094d);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  form {
       padding: 20px;
-      max-width: 90%;
-    }
-  
-    h1 {
-      font-size: 2rem;
-    }
   }
-  
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  button {
+      padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  form {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 1.3rem;
+  }
+
+  button {
+      padding: 6px;
+  }
+}

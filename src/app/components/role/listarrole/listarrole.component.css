@@ -1,6 +1,7 @@
 div {
     box-sizing: border-box;
 }
+
 h1 {
     padding: 30px 50px 5px 50px;
     background-color: #76a48f;
@@ -9,18 +10,23 @@ h1 {
     font-weight: bold;
     color: white;
 }
-.first-box {
-    margin: 100px 200px 100px 200px;
-    background-color: #76a48f;
-}
+
 table {
-    height: 500px;
-    padding: 10px 5px 20px 5px;
-    border-radius: 20px;
+    margin: 20px auto;
     padding: 20px;
-    border: solid 10px;
-    border-color: #76a48f;
+    border-radius: 10px;
+    border: solid 3px #76a48f;
+    width: 90%;
+    background-color: white;
 }
+
 th {
     font-weight: bold;
+    color: #444;
+}
+
+mat-paginator {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
 }
