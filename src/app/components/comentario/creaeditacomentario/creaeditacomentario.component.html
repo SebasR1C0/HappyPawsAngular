@@ -11,19 +11,35 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <mat-label>Comentario</mat-label>
-          <input matInput placeholder="Comentario" formControlName="hcomentario">
-          <mat-error *ngIf="form.controls['hcomentario'].hasError('required') && form.controls['hcomentario'].touched">
-              El comentario es requerido.
-          </mat-error>
+        <mat-label>Comentario</mat-label>
+        <input matInput placeholder="Comentario" formControlName="hcomentario">
+        <mat-error *ngIf="form.controls['hcomentario'].touched">
+          <ng-container *ngIf="form.controls['hcomentario'].hasError('required')">
+            El comentario es requerido.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hcomentario'].hasError('minlength') && !form.controls['hcomentario'].hasError('required')">
+            Debe tener al menos 5 caracteres.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
-
+  
       <mat-form-field class="example-full-width">
-          <mat-label>Estrella</mat-label>
-          <input matInput placeholder="Estrella" formControlName="hestrella">
-          <mat-error *ngIf="form.controls['hestrella'].hasError('required') && form.controls['hestrella'].touched">
-              Las estrellas son requeridas.
-          </mat-error>
+        <mat-label>Estrella</mat-label>
+        <input matInput placeholder="Estrella" formControlName="hestrella">
+        <mat-error *ngIf="form.controls['hestrella'].touched">
+          <ng-container *ngIf="form.controls['hestrella'].hasError('required')">
+            La calificación es requerida.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hestrella'].hasError('pattern') && !form.controls['hestrella'].hasError('required')">
+            Ddebe ser un número válido.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hestrella'].hasError('min') && !form.controls['hestrella'].hasError('required') && !form.controls['hestrella'].hasError('pattern')">
+            Debe ser mayor o igual a 0.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hestrella'].hasError('max') && !form.controls['hestrella'].hasError('required') && !form.controls['hestrella'].hasError('pattern')">
+            Debe ser menor o igual a 5.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>

@@ -54,14 +54,14 @@ export class CreaeditauserComponent implements OnInit {
 
     this.form=this.formBuilder.group({
       hcodigo:[''],
-      hnombre:['',Validators.required],
-      hapellido:['',Validators.required],
-      hemail:['',Validators.required],
-      hdireccion:['',Validators.required],
-      htelefono:['',Validators.required],
+      hnombre:['',[Validators.required, Validators.minLength(2)]],
+      hapellido:['',[Validators.required, Validators.minLength(2)]],
+      hemail:['',[Validators.required, Validators.email]],
+      hdireccion:['',[Validators.required, Validators.minLength(5)]],
+      htelefono:['',[Validators.required, Validators.pattern("^[0-9]+$")]],
       hgenero:['',Validators.required],
-      husername:['',Validators.required],
-      hpassword:['',Validators.required],
+      husername:['',[Validators.required, Validators.minLength(2)]],
+      hpassword: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{5,}$")]],
     })
   }
   aceptar():void{

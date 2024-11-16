@@ -50,8 +50,8 @@ export class CreaeditacomentarioComponent implements OnInit {
     
       this.form = this.formBuilder.group({
         hcodigo:[''],
-        hcomentario:['', Validators.required],
-        hestrella:['', Validators.required],
+        hcomentario:['',[Validators.required, Validators.minLength(5)]],
+        hestrella:['', [Validators.required, Validators.pattern("^[0-9]+(\.[0-9]{1,2})?$"), Validators.min(0), Validators.max(5)]],
         halbergue:['', Validators.required],
       })
       this.aS.list().subscribe((data) => {

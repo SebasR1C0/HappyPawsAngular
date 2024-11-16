@@ -66,18 +66,23 @@ export class CreaeditamascotaComponent implements OnInit {
     
       this.form = this.formBuilder.group({
         hcodigo:[''],
-        hnombre:['',Validators.required],
+        hnombre:['',[Validators.required, Validators.minLength(2)]],
         hsexo:['',Validators.required],
-        hnacimiento:['',Validators.required],
-        hraza:['',Validators.required],
+        hnacimiento:['',[Validators.required, this.fechaValida]],
+        hraza:['',[Validators.required, Validators.minLength(2)]],
         hadopcion:['',Validators.required],
-        hfecha:['',Validators.required],
+        hfecha:['',[Validators.required, this.fechaValida]],
         hestado:['',Validators.required],
         halbergue:['', Validators.required],
       })
       this.aS.list().subscribe((data) => {
         this.listaAlbergues = data;
       });
+  }
+  fechaValida(control: { value: string | number | Date; }) {
+    const fecha = new Date(control.value);
+    const hoy = new Date();
+    return fecha < hoy ? null : { fechaInvalida: true };
   }
   aceptar(): void {
     if (this.form.valid) {

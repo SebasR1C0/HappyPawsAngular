@@ -54,7 +54,7 @@ export class CreaeditanotificacionComponent implements OnInit {
     
       this.form = this.formBuilder.group({
         hcodigo:[''],
-        hmensaje:['',Validators.required],
+        hmensaje:['',[Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
         hemisor:['',Validators.required],
         htipo:['',Validators.required],
         huser:['', Validators.required],
@@ -78,7 +78,7 @@ export class CreaeditanotificacionComponent implements OnInit {
             this.nS.setList(sortedData);
           });
         });
-        this.snackBar.open('EdiciÃ³n exitosa', 'Cerrar', {
+        this.snackBar.open('Edicion exitosa', 'Cerrar', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom'

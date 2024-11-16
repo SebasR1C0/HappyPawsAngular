@@ -10,16 +10,6 @@
           </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-          <mat-label>Fecha</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="hfecha" required>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <mat-error *ngIf="form.controls['hfecha'].hasError('required') && form.controls['hfecha'].touched">
-              La fecha es requerida.
-          </mat-error>
-      </mat-form-field>
-
       <mat-form-field>
           <mat-label>Tipo</mat-label>
           <mat-select formControlName="htipo">
@@ -31,19 +21,32 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <mat-label>Monto</mat-label>
-          <input matInput placeholder="Monto" formControlName="hmonto">
-          <mat-error *ngIf="form.controls['hmonto'].hasError('required') && form.controls['hmonto'].touched">
-              El monto es requerido.
-          </mat-error>
+        <mat-label>Monto</mat-label>
+        <input matInput placeholder="Monto" formControlName="hmonto">
+        <mat-error *ngIf="form.controls['hmonto'].touched">
+          <ng-container *ngIf="form.controls['hmonto'].hasError('required')">
+            El monto es requerido.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hmonto'].hasError('pattern') && !form.controls['hmonto'].hasError('required')">
+            El monto debe ser un número.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hmonto'].hasError('min') && !form.controls['hmonto'].hasError('required') && !form.controls['hmonto'].hasError('pattern')">
+            Debe ser mayor o igual a 1.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <mat-label>Detalles</mat-label>
-          <input matInput placeholder="Detalles" formControlName="hdetalle">
-          <mat-error *ngIf="form.controls['hdetalle'].hasError('required') && form.controls['hdetalle'].touched">
-              Los detalles son requeridos.
-          </mat-error>
+        <mat-label>Detalles</mat-label>
+        <input matInput placeholder="Detalles" formControlName="hdetalle">
+        <mat-error *ngIf="form.controls['hdetalle'].touched">
+          <ng-container *ngIf="form.controls['hdetalle'].hasError('required')">
+            Los detalles son requeridos.
+          </ng-container>
+          <ng-container *ngIf="form.controls['hdetalle'].hasError('minlength') && !form.controls['hdetalle'].hasError('required')">
+            Deben tener al menos 5 caracteres.
+          </ng-container>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
