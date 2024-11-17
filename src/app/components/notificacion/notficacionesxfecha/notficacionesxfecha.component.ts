@@ -58,7 +58,7 @@ export class NotficacionesxfechaComponent implements OnInit {
         {
           data: data.map(item=>item.cantidad),
           label: 'Cantidad de roles por usuario',
-          backgroundColor: ['#FF5733', '#575fd4'],
+          backgroundColor: ['#FF5733', '#575fd4', '#33FF57', '#ed2a5c','#33ffe9','#8033ff', '#e9ff33'],
           borderColor: '#050404',
           borderWidth: 1,
         }
