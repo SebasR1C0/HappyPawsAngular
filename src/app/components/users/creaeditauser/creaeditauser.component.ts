@@ -61,7 +61,7 @@ export class CreaeditauserComponent implements OnInit {
       htelefono:['',[Validators.required, Validators.pattern("^[0-9]+$")]],
       hgenero:['',Validators.required],
       husername:['',[Validators.required, Validators.minLength(2)]],
-      hpassword: ['', [Validators.required, Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{5,}$")]],
+      hpassword: ['', [Validators.required, Validators.minLength(5)]],
     })
   }
   aceptar():void{
