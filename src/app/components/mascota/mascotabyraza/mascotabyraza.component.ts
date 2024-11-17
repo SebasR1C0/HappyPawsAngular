@@ -28,7 +28,7 @@ export class MascotabyrazaComponent implements OnInit {
         {
           data: data.map(item=>item.count),
           label: 'Albergue con tipo de raza',
-          backgroundColor: ['#FF5733', '#575fd4', '#33FF57', '#2AD8ED'],
+          backgroundColor: ['#FF5733', '#575fd4', '#33FF57', '#ed2a5c','#33ffe9','#8033ff', '#e9ff33'],
           borderColor: '#050404',
           borderWidth: 1,
         }
