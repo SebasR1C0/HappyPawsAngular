@@ -32,7 +32,7 @@
       <button mat-menu-item *ngIf="isAdmin() ||isAlbergue() || isAdmin() || isCustomer()"[matMenuTriggerFor]="menuMascota">
         <mat-icon>pets icon</mat-icon>Mascotas
       </button>
-      <button mat-menu-item  *ngIf="isAdmin()"[matMenuTriggerFor]="menuNotificacion">
+      <button mat-menu-item  *ngIf="isAdmin() || isCustomer()" [matMenuTriggerFor]="menuNotificacion">
         <mat-icon>question_answer</mat-icon>Notificaciones
       </button>
       <button mat-menu-item [matMenuTriggerFor]="menuSalir">
@@ -149,10 +149,10 @@
 
       <!-- Menú de Notificacion -->
       <mat-menu #menuNotificacion="matMenu">
-        <button mat-menu-item routerLink="/notificaciones/nuevo">
+        <button mat-menu-item *ngIf="isAdmin()" routerLink="/notificaciones/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
-        <button mat-menu-item routerLink="/notificaciones">
+        <button mat-menu-item *ngIf="isCustomer()" routerLink="/notificaciones">
           <mat-icon>list</mat-icon>Listar
         </button>
         <!--<button mat-menu-item routerLink="/notificaciones/notificacionxfecha">
