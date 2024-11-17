@@ -149,10 +149,10 @@
 
       <!-- Menú de Notificacion -->
       <mat-menu #menuNotificacion="matMenu">
-        <button mat-menu-item *ngIf="isAdmin()" routerLink="/notificaciones/nuevo">
+        <button mat-menu-item *ngIf="isAdmin() || isCustomer()" routerLink="/notificaciones/nuevo">
           <mat-icon>add_circle</mat-icon>Registrar
         </button>
-        <button mat-menu-item *ngIf="isCustomer()" routerLink="/notificaciones">
+        <button mat-menu-item *ngIf="isAdmin() || isCustomer()" routerLink="/notificaciones">
           <mat-icon>list</mat-icon>Listar
         </button>
         <!--<button mat-menu-item routerLink="/notificaciones/notificacionxfecha">
